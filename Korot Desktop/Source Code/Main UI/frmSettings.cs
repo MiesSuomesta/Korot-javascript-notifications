@@ -35,37 +35,6 @@ namespace Korot
             InitializeComponent();
             tbLang.Text = Path.GetFileNameWithoutExtension(Settings.LanguageSystem.LangFile);
             EasterEggs();
-            if (cefform.anaform.Updater.isUpToDate)
-            {
-                btUpdater.Enabled = true;
-                btUpdater.Visible = true;
-                lbUpdateStatus.Text = cefform.anaform.KorotUpToDate;
-            }
-            else if (cefform.anaform.Updater.isDownloading && !cefform.anaform.Updater.isUpToDate)
-            {
-                btUpdater.Enabled = false;
-                btUpdater.Visible = false;
-                string x = "" + cefform.anaform.Updater.Progress;
-                lbUpdateStatus.Text = cefform.anaform.KorotUpdating.Replace("[PERC]", x);
-            }
-            else if (cefform.anaform.Updater.isReady && !cefform.anaform.Updater.isUpToDate)
-            {
-                btUpdater.Enabled = false;
-                btUpdater.Visible = false;
-                lbUpdateStatus.Text = cefform.anaform.KorotUpdated;
-            }
-            else if (cefform.anaform.Updater.isError)
-            {
-                btUpdater.Enabled = true;
-                btUpdater.Visible = true;
-                lbUpdateStatus.Text = cefform.anaform.KorotUpdateError;
-            }
-            p32bit.Visible = !Environment.Is64BitProcess;
-            p32bit.Enabled = !Environment.Is64BitProcess;
-            lbUpdateStatus.Visible = Environment.Is64BitProcess;
-            lbUpdateStatus.Enabled = Environment.Is64BitProcess;
-            btUpdater.Visible = Environment.Is64BitProcess;
-            btUpdater.Enabled = Environment.Is64BitProcess;
             ReloadTheme(true);
         }
 
@@ -125,34 +94,11 @@ namespace Korot
                 Settings.ThemeChangeForm.Remove(this);
                 ReloadTheme();
             }
-            if (Environment.Is64BitProcess)
-            {
-                if (cefform.anaform.Updater.isUpToDate)
-                {
-                    btUpdater.Enabled = true;
-                    btUpdater.Visible = true;
-                    lbUpdateStatus.Text = cefform.anaform.KorotUpToDate;
-                }
-                else if (cefform.anaform.Updater.isDownloading && !cefform.anaform.Updater.isUpToDate)
-                {
-                    btUpdater.Enabled = false;
-                    btUpdater.Visible = false;
-                    string x = "" + cefform.anaform.Updater.Progress;
-                    lbUpdateStatus.Text = cefform.anaform.KorotUpdating.Replace("[PERC]", x);
-                }
-                else if (cefform.anaform.Updater.isReady && !cefform.anaform.Updater.isUpToDate)
-                {
-                    btUpdater.Enabled = false;
-                    btUpdater.Visible = false;
-                    lbUpdateStatus.Text = cefform.anaform.KorotUpdated;
-                }
-                else if (cefform.anaform.Updater.isError)
-                {
-                    btUpdater.Enabled = true;
-                    btUpdater.Visible = true;
-                    lbUpdateStatus.Text = cefform.anaform.KorotUpdateError;
-                }
-            }
+        }
+        internal void SwitchNewTab()
+        {
+            label4_Click(this, new EventArgs());
+            tpSettings.ScrollControlIntoView(tlpNewTab);
         }
 
         internal void SwitchSettings()
@@ -163,7 +109,7 @@ namespace Korot
         internal void SwitchThemes()
         {
             label4_Click(this, new EventArgs());
-            tpSettings.ScrollControlIntoView(btThemeWizard);
+            tpSettings.ScrollControlIntoView(lbLayout);
         }
 
         internal void SwitchSite()
@@ -217,8 +163,8 @@ namespace Korot
                 hsDoNotTrack.OverlayColor = Settings.NinjaMode ? Settings.Theme.BackColor : Settings.Theme.OverlayColor;
                 hsFav.OverlayColor = Settings.NinjaMode ? Settings.Theme.BackColor : Settings.Theme.OverlayColor;
                 hsOpen.OverlayColor = Settings.NinjaMode ? Settings.Theme.BackColor : Settings.Theme.OverlayColor;
-                p32bit.BackColor = backcolor2;
-                p32bit.ForeColor = ForeColor;
+                pImportant.BackColor = backcolor2;
+                pImportant.ForeColor = ForeColor;
 
                 ll32bit.ActiveLinkColor = Settings.Theme.OverlayColor;
                 ll32bit.DisabledLinkColor = Settings.Theme.OverlayColor;
@@ -226,6 +172,9 @@ namespace Korot
                 ll32bit.VisitedLinkColor = Settings.Theme.OverlayColor;
                 ll32bit.ForeColor = Settings.Theme.OverlayColor;
 
+                btClose.BackColor = BackColor;
+                btBack.BackColor = BackColor;
+                btSidebar.BackColor = BackColor;
 
                 llLicenses.ActiveLinkColor = Settings.Theme.OverlayColor;
                 llLicenses.DisabledLinkColor = Settings.Theme.OverlayColor;
@@ -357,7 +306,6 @@ namespace Korot
                 cmsSearchEngine.ForeColor = ForeColor;
                 tbTheme.BackColor = backcolor2;
                 tbLang.BackColor = backcolor2;
-                btUpdater.BackColor = backcolor2;
                 tbHomepage.BackColor = backcolor2;
                 tbFolder.BackColor = backcolor2;
                 tbStartup.BackColor = backcolor2;
@@ -451,7 +399,6 @@ namespace Korot
                 lbForeColor.Text = Settings.LanguageSystem.GetItemText("ForeColor");
                 lbAutoSelect.Text = Settings.LanguageSystem.GetItemText("AutoForeColor");
                 lbNinja.Text = Settings.LanguageSystem.GetItemText("NinjaMode");
-                btThemeWizard.Text = Settings.LanguageSystem.GetItemText("ThemeWizardButton");
                 btBlocked.Text = Settings.LanguageSystem.GetItemText("BlockMenuButton");
                 tpBlock.Text = Settings.LanguageSystem.GetItemText("BlockMenuTitle");
                 lbNewTabTitle.Text = Settings.LanguageSystem.GetItemText("NewTabEditorTitle");
@@ -514,7 +461,6 @@ namespace Korot
                 lbSettings.Text = Settings.LanguageSystem.GetItemText("Settings");
                 colorToolStripMenuItem.Text = Settings.LanguageSystem.GetItemText("UseBackgroundColor");
                 lbBackImageStyle.Text = Settings.LanguageSystem.GetItemText("BackgroundImageLayout");
-                btUpdater.Text = Settings.LanguageSystem.GetItemText("CheckForUpdates");
                 rbNewTab.Text = Settings.LanguageSystem.GetItemText("NewTab");
                 lbBackImage.Text = Settings.LanguageSystem.GetItemText("BackgroundStyle");
                 lbDownloads.Text = Settings.LanguageSystem.GetItemText("Downloads");
@@ -857,7 +803,7 @@ namespace Korot
             pTitle.Location = new Point(pSidebar.Location.X + pSidebar.Width, pTitle.Location.Y); pTitle.Width = Width - pSidebar.Width;
             tabControl1.Location = new Point(pSidebar.Location.X + pSidebar.Width - 5, tabControl1.Location.Y); tabControl1.Width = Width - pSidebar.Width + 5;
             lbLayout.Width = tpSettings.Width - 56;
-            p32bit.Width = lbLayout.Width;
+            pImportant.Width = lbLayout.Width;
             btClear.Width = lbLayout.Width;
             tlpNewTab.Width = lbLayout.Width;
             pCleanCache.Width = lbLayout.Width;
@@ -921,7 +867,7 @@ namespace Korot
             hsDownload.Location = new Point(lbAutoDownload.Location.X + lbAutoDownload.Width, hsDownload.Location.Y);
             hsProxy.Location = new Point(lbLastProxy.Location.X + lbLastProxy.Width, hsProxy.Location.Y);
             llLicenses.LinkArea = new LinkArea(0, llLicenses.Text.Length);
-            llLicenses.Location = new Point(label21.Location.X, label21.Location.Y + label21.Size.Height);
+            llLicenses.Location = new Point(label21.Location.X, label21.Location.Y + label21.Size.Height + 15);
             textBox4.Location = new Point(lbBackImage.Location.X + lbBackImage.Width, textBox4.Location.Y);
             textBox4.Width = lbLayout.Width - (lbBackImage.Width + lbBackImage.Location.X);
             tbStartup.Location = new Point(lbAtStartup.Location.X + lbAtStartup.Width, tbStartup.Location.Y);
@@ -951,12 +897,10 @@ namespace Korot
             rbNewTab.Location = new Point(tbHomepage.Location.X + tbHomepage.Width, rbNewTab.Location.Y);
             tbSearchEngine.Location = new Point(lbSearchEngine.Location.X + lbSearchEngine.Width, tbSearchEngine.Location.Y);
             tbSearchEngine.Width = lbLayout.Width - (lbSearchEngine.Location.X + lbSearchEngine.Width);
-            btReset.Location = new Point(llLicenses.Location.X, llLicenses.Location.Y + llLicenses.Height);
-            lbUpdateStatus.Location = new Point(btReset.Location.X, btReset.Location.Y + btReset.Height);
-            btUpdater.Location = new Point(lbUpdateStatus.Location.X, lbUpdateStatus.Location.Y + lbUpdateStatus.Height);
-            p32bit.Location = new Point(btUpdater.Location.X, (btUpdater.Visible && lbUpdateStatus.Visible) ? btUpdater.Location.Y + btUpdater.Height : btReset.Location.Y + btReset.Height);
+            btReset.Location = new Point(llLicenses.Location.X, llLicenses.Location.Y + llLicenses.Height + 15);
             tbLang.Location = new Point(lbLang.Location.X + lbLang.Width, tbLang.Location.Y);
             tbLang.Width = lbLayout.Width - (lbLang.Location.X + lbLang.Width);
+            pImportant.Location = new Point(pImportant.Location.X, btReset.Location.Y + btReset.Height + 15);
         }
 
         private void htButton1_Click(object sender, EventArgs e)
@@ -1483,18 +1427,7 @@ namespace Korot
             tbTheme.Text = Path.GetFileNameWithoutExtension(Settings.Theme.ThemeFile);
         }
 
-        private void btThemeWizard_Click(object sender, EventArgs e)
-        {
-            if (!(cefform.anaform is null))
-            {
-                cefform.anaform.Invoke(new Action(() =>
-                {
-                    frmThemeWizard wizard = new frmThemeWizard(Settings);
-                    wizard.ShowDialog();
-                }));
-                Settings.JustChangedTheme(); ReloadTheme(true);
-            }
-        }
+       
 
         private void textBox4_Click(object sender, EventArgs e)
         {
@@ -2345,18 +2278,12 @@ namespace Korot
             }));
         }
 
-        private void btUpdater_Click(object sender, EventArgs e)
-        {
-            cefform.anaform.Updater.CheckForUpdates();
-        }
-
         private void ll32bit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            cefform.Invoke(new Action(() => cefform.NewTab("https://github.com/Haltroy/Korot/issues/142")));
+            cefform.Invoke(new Action(() => cefform.NewTab("https://haltroy.com/korot2yorot.html")));
         }
 
         #endregion About
-
 
     }
 }

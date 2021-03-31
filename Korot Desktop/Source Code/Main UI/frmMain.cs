@@ -33,7 +33,6 @@ namespace Korot
         public bool isIncognito = false;
         public TitleBarTab licenseTab = null;
         public TitleBarTab settingTab = null;
-        public frmUpdate Updater;
 
         #region Notification Listener
 
@@ -466,10 +465,6 @@ namespace Korot
             AeroPeekEnabled = true;
             TabRenderer = new KorotTabRenderer(this);
             Icon = Properties.Resources.KorotIcon;
-            Updater = new frmUpdate(Settings)
-            {
-                Visible = false,
-            };
             InitializeComponent();
             foreach (Control x in Controls)
             {
@@ -498,7 +493,6 @@ namespace Korot
                 tmrNL.Start();
             }
             list = new MyJumplist(Handle, settings);
-            Updater.CheckForUpdates();
         }
         private void CloseTabs()
         {
@@ -768,10 +762,6 @@ namespace Korot
                 }
                 CloseTabs();
                 Cef.Shutdown();
-                if (Updater.isReady)
-                {
-                    Updater.ApplyUpdate();
-                }
                 CleanNow(true);
 
                 Settings.Save();

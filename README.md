@@ -3,11 +3,9 @@
 </p>
 
 # [Korot](https://haltroy.com/Korot.html "Korot's Page")
-A Chromium web browser made by [Haltroy](https://haltroy.com "Haltroy's Website").
+A Chromium web browser made by [Haltroy](https://haltroy.com "Haltroy's Website") which is now deprecated, retired and no longer maintained. Please use [Yorot](https://github.com/haltroy/yorot) instead.
 
-Latest Stable Version: [`0.8.3.0`](https://github.com/Haltroy/Korot/tree/0.8.3.0).
-
-Developing Version: [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0).
+Latest Version: [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1).
 
 
 <p align="center" style="text-align: center;">
@@ -20,8 +18,8 @@ Developing Version: [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0).
  - Celebrates your birthday.
  - Developer tools ,View Source ,Page screnshot, Print, Keyboard Shortcuts, Save page & Zoom in page
  - UI language system (Comes with [`English`](https://haltroy.com/store/item/Haltroy.KorotEnglish/) and [`Türkçe`](https://haltroy.com/store/item/Haltroy.KorotTürkçe/) languages)
- - Theme system (Comes with 32 themes with different colors) & [Theme Store](https://haltroy.com/store/Korot/Themes/)
- - Built-in Extension system (with support for proxies) & [Extension Store](https://haltroy.com/store/Korot/Extensions/)
+ - Themes
+ - ~Built-in Extension system (with support for proxies)~ 
  - Profiles
  - Notifications
  - Download manager
@@ -36,12 +34,10 @@ To see roadmap, refer to [ROADMAP](https://github.com/Haltroy/Korot/blob/master/
 
  | Branch                                                              | CEFSharp Version | VC++ Version | .Net | HTAlt  | Status | Release Time |
 |----------------------------------------------------------------------|------|------|-------|-----------------|-----|-------------------|
-| [`master`](https://github.com/haltroy/korot)                      | 85 | 2015 | Framework 4.8 | b1.6 | Master | `1.0.0.0`: Unknown |
-| [`1.0.0.0`](https://github.com/Haltroy/Korot/tree/1.0.0.0) | >=85 | 2015 | Framework 4.8 | >=b1.6 | `Planned` | ?? March 2021 |
-| [`0.9.0.0`](https://github.com/Haltroy/Korot/tree/0.9.0.0) | >=85 | 2015 | Framework 4.8 | >=b1.6 | `Planned` | ?? January 2021 |
-| [`0.8.5.0`](https://github.com/Haltroy/Korot/tree/0.8.5.0) | >=85 | 2015 | Framework 4.8 | b1.6.1 | `Planned` | ?? November 2020 |
-| [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0) | 85 | 2015 | Framework 4.8 | b1.6 | `Development` | ?? October 2020 |
-| [`0.8.3.0`](https://github.com/Haltroy/Korot/tree/0.8.3.0) | 84 | 2015 | Framework 4.8 | b1.6 | **Latest Release** | 13 October 2020 |
+| [`master`](https://github.com/haltroy/korot)                      | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 1 August 2021 |
+| [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1) | 88 | 2015 | Framework 4.8 | b1.6.4 | Unsupported | ?? June 2021 |
+| [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0) | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 29 October 2020 |
+| [`0.8.3.0`](https://github.com/Haltroy/Korot/tree/0.8.3.0) | 84 | 2015 | Framework 4.8 | b1.6 | Unsupported | 13 October 2020 |
 | [`0.8.2.0`](https://github.com/Haltroy/Korot/tree/0.8.2.0) | 84 | 2015 | Framework 4.8 | b1.5.1 | Unsupported | 18 September 2020 |
 | [`0.8.1.1`](https://github.com/Haltroy/Korot/tree/0.8.1.1) | 84 | 2015 | Framework 4.8 | b1.5.1 | Unsupported | 31 August 2020 |
 | [`0.8.1.0`](https://github.com/Haltroy/Korot/tree/0.8.1.0) | 84 | 2015 | Framework 4.8 | b1.5 | Unsupported | 26 August 2020 |

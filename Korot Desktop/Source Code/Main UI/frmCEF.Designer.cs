@@ -5,6 +5,8 @@ Copyright © 2020 Eren "Haltroy" Kanat
 Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
+using System.Drawing;
+
 namespace Korot
 {
     partial class frmCEF
@@ -212,51 +214,42 @@ namespace Korot
             // 
             // btHome
             // 
-            this.btHome.BackColor = System.Drawing.Color.Transparent;
+            this.btHome.BackColor = Color.White;
             this.btHome.ButtonImage = global::Korot.Properties.Resources.home;
             this.btHome.DrawImage = true;
-            this.btHome.FlatAppearance.BorderSize = 0;
-            this.btHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHome.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.Zoom;
             this.btHome.Location = new System.Drawing.Point(58, 0);
             this.btHome.Name = "btHome";
             this.btHome.Size = new System.Drawing.Size(30, 28);
             this.btHome.TabIndex = 2;
-            this.btHome.UseVisualStyleBackColor = false;
             this.btHome.Click += new System.EventHandler(this.button5_Click);
             this.btHome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabform_KeyDown);
             // 
             // btFav
             // 
             this.btFav.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btFav.BackColor = System.Drawing.Color.Transparent;
+            this.btFav.BackColor = Color.White;
             this.btFav.ButtonImage = global::Korot.Properties.Resources.star;
             this.btFav.DrawImage = true;
-            this.btFav.FlatAppearance.BorderSize = 0;
-            this.btFav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btFav.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.Zoom;
             this.btFav.Location = new System.Drawing.Point(642, 0);
             this.btFav.Name = "btFav";
             this.btFav.Size = new System.Drawing.Size(30, 28);
             this.btFav.TabIndex = 7;
-            this.btFav.UseVisualStyleBackColor = false;
             this.btFav.Click += new System.EventHandler(this.Button7_Click);
             this.btFav.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabform_KeyDown);
             // 
             // btNext
             // 
-            this.btNext.BackColor = System.Drawing.Color.Transparent;
+            this.btNext.BackColor = Color.White;
             this.btNext.ButtonImage = global::Korot.Properties.Resources.rightarrow;
             this.btNext.ContextMenuStrip = this.cmsForward;
             this.btNext.DrawImage = true;
-            this.btNext.FlatAppearance.BorderSize = 0;
-            this.btNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btNext.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.Zoom;
             this.btNext.Location = new System.Drawing.Point(87, 0);
             this.btNext.Name = "btNext";
             this.btNext.Size = new System.Drawing.Size(30, 28);
             this.btNext.TabIndex = 3;
-            this.btNext.UseVisualStyleBackColor = false;
             this.btNext.Click += new System.EventHandler(this.button3_Click);
             this.btNext.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabform_KeyDown);
             // 
@@ -284,18 +277,15 @@ namespace Korot
             // 
             // btBack
             // 
-            this.btBack.BackColor = System.Drawing.Color.Transparent;
+            this.btBack.BackColor = Color.White;
             this.btBack.ButtonImage = global::Korot.Properties.Resources.leftarrow;
             this.btBack.ContextMenuStrip = this.cmsBack;
             this.btBack.DrawImage = true;
-            this.btBack.FlatAppearance.BorderSize = 0;
-            this.btBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBack.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.Zoom;
             this.btBack.Location = new System.Drawing.Point(0, 0);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(30, 28);
             this.btBack.TabIndex = 0;
-            this.btBack.UseVisualStyleBackColor = false;
             this.btBack.Click += new System.EventHandler(this.button1_Click);
             this.btBack.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabform_KeyDown);
             // 
@@ -324,50 +314,41 @@ namespace Korot
             // btHamburger
             // 
             this.btHamburger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btHamburger.BackColor = System.Drawing.Color.Transparent;
+            this.btHamburger.BackColor = Color.White;
             this.btHamburger.ButtonImage = global::Korot.Properties.Resources.hamburger;
             this.btHamburger.DrawImage = true;
-            this.btHamburger.FlatAppearance.BorderSize = 0;
-            this.btHamburger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHamburger.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.Zoom;
             this.btHamburger.Location = new System.Drawing.Point(700, 0);
             this.btHamburger.Name = "btHamburger";
             this.btHamburger.Size = new System.Drawing.Size(30, 28);
             this.btHamburger.TabIndex = 9;
-            this.btHamburger.UseVisualStyleBackColor = false;
             this.btHamburger.Click += new System.EventHandler(this.button11_Click);
             this.btHamburger.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabform_KeyDown);
             // 
             // btProfile
             // 
             this.btProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btProfile.BackColor = System.Drawing.Color.Transparent;
+            this.btProfile.BackColor = Color.White;
             this.btProfile.ButtonImage = global::Korot.Properties.Resources.profiles;
             this.btProfile.DrawImage = true;
-            this.btProfile.FlatAppearance.BorderSize = 0;
-            this.btProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProfile.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.Zoom;
             this.btProfile.Location = new System.Drawing.Point(671, 0);
             this.btProfile.Name = "btProfile";
             this.btProfile.Size = new System.Drawing.Size(30, 28);
             this.btProfile.TabIndex = 8;
-            this.btProfile.UseVisualStyleBackColor = false;
             this.btProfile.Click += new System.EventHandler(this.Button9_Click);
             this.btProfile.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabform_KeyDown);
             // 
             // btRefresh
             // 
-            this.btRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btRefresh.BackColor = Color.White;
             this.btRefresh.ButtonImage = global::Korot.Properties.Resources.refresh;
             this.btRefresh.DrawImage = true;
-            this.btRefresh.FlatAppearance.BorderSize = 0;
-            this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRefresh.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.Zoom;
             this.btRefresh.Location = new System.Drawing.Point(29, 0);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(30, 28);
             this.btRefresh.TabIndex = 1;
-            this.btRefresh.UseVisualStyleBackColor = false;
             this.btRefresh.Click += new System.EventHandler(this.button2_Click);
             this.btRefresh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabform_KeyDown);
             // 

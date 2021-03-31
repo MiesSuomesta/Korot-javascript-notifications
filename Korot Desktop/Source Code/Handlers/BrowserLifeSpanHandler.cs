@@ -30,9 +30,9 @@ namespace Korot
                 frmPopup popup = new frmPopup(tabform, tabform.userName, targetUrl)
                 {
                     StartPosition = FormStartPosition.Manual,
-                    Location = new System.Drawing.Point(popupFeatures.X, popupFeatures.Y),
-                    Width = popupFeatures.Width,
-                    Height = popupFeatures.Height,
+                    Location = new System.Drawing.Point(popupFeatures.X.HasValue ? popupFeatures.X.Value : 0, popupFeatures.Y.HasValue ? popupFeatures.Y.Value : 0),
+                    Width = popupFeatures.Width.HasValue ? popupFeatures.Width.Value : 500,
+                    Height = popupFeatures.Width.HasValue ? popupFeatures.Height.Value : 500,
                 };
                 popup.Show();
             }

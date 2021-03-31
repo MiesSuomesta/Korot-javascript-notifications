@@ -351,8 +351,7 @@ namespace Korot
         {
             if (Settings.useHaltroyUpdater)
             {
-                frmUpdateExt frmUpdate = new frmUpdateExt(this, LocalSettings);
-                frmUpdate.Show();
+                Output.WriteLine("Cannot update \"" + CodeName + "\", support for Korot ended.");
             }
         }
     }

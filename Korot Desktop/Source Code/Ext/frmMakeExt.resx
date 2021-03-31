@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-<!-- 
-
-Copyright © 2020 Eren "Haltroy" Kanat
-
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
-
--->
   <!-- 
     Microsoft ResX Schema 
     
@@ -124,15 +117,6 @@ Use of this source code is governed by MIT License that can be found in github.c
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
-  </metadata>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="tmrCooldown.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>287, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>53</value>
   </metadata>

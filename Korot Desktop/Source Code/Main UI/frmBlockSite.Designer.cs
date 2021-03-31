@@ -56,10 +56,10 @@ namespace Korot
             // lbUrl
             // 
             this.lbUrl.AutoSize = true;
-            this.lbUrl.Font = new System.Drawing.Font("Ubuntu", 12F);
+            this.lbUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbUrl.Location = new System.Drawing.Point(8, 9);
             this.lbUrl.Name = "lbUrl";
-            this.lbUrl.Size = new System.Drawing.Size(34, 20);
+            this.lbUrl.Size = new System.Drawing.Size(33, 20);
             this.lbUrl.TabIndex = 2;
             this.lbUrl.Text = "Url:";
             // 
@@ -92,19 +92,19 @@ namespace Korot
             // lbLevel
             // 
             this.lbLevel.AutoSize = true;
-            this.lbLevel.Font = new System.Drawing.Font("Ubuntu", 12F);
+            this.lbLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbLevel.Location = new System.Drawing.Point(3, 0);
             this.lbLevel.Name = "lbLevel";
-            this.lbLevel.Size = new System.Drawing.Size(94, 20);
+            this.lbLevel.Size = new System.Drawing.Size(93, 20);
             this.lbLevel.TabIndex = 3;
             this.lbLevel.Text = "Block Level:";
             // 
             // rbL0
             // 
             this.rbL0.AutoSize = true;
-            this.rbL0.Location = new System.Drawing.Point(103, 3);
+            this.rbL0.Location = new System.Drawing.Point(102, 3);
             this.rbL0.Name = "rbL0";
-            this.rbL0.Size = new System.Drawing.Size(64, 20);
+            this.rbL0.Size = new System.Drawing.Size(64, 19);
             this.rbL0.TabIndex = 4;
             this.rbL0.TabStop = true;
             this.rbL0.Text = "Level 0";
@@ -114,9 +114,9 @@ namespace Korot
             // rbL1
             // 
             this.rbL1.AutoSize = true;
-            this.rbL1.Location = new System.Drawing.Point(173, 3);
+            this.rbL1.Location = new System.Drawing.Point(172, 3);
             this.rbL1.Name = "rbL1";
-            this.rbL1.Size = new System.Drawing.Size(64, 20);
+            this.rbL1.Size = new System.Drawing.Size(64, 19);
             this.rbL1.TabIndex = 5;
             this.rbL1.TabStop = true;
             this.rbL1.Text = "Level 1";
@@ -126,9 +126,9 @@ namespace Korot
             // rbL2
             // 
             this.rbL2.AutoSize = true;
-            this.rbL2.Location = new System.Drawing.Point(243, 3);
+            this.rbL2.Location = new System.Drawing.Point(242, 3);
             this.rbL2.Name = "rbL2";
-            this.rbL2.Size = new System.Drawing.Size(64, 20);
+            this.rbL2.Size = new System.Drawing.Size(64, 19);
             this.rbL2.TabIndex = 6;
             this.rbL2.TabStop = true;
             this.rbL2.Text = "Level 2";
@@ -138,9 +138,9 @@ namespace Korot
             // rbL3
             // 
             this.rbL3.AutoSize = true;
-            this.rbL3.Location = new System.Drawing.Point(313, 3);
+            this.rbL3.Location = new System.Drawing.Point(312, 3);
             this.rbL3.Name = "rbL3";
-            this.rbL3.Size = new System.Drawing.Size(64, 20);
+            this.rbL3.Size = new System.Drawing.Size(64, 19);
             this.rbL3.TabIndex = 7;
             this.rbL3.TabStop = true;
             this.rbL3.Text = "Level 3";
@@ -161,7 +161,7 @@ namespace Korot
             // 
             this.lbFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFilter.Font = new System.Drawing.Font("Ubuntu", 12F);
+            this.lbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbFilter.Location = new System.Drawing.Point(8, 108);
             this.lbFilter.Name = "lbFilter";
             this.lbFilter.Size = new System.Drawing.Size(509, 20);
@@ -170,16 +170,20 @@ namespace Korot
             // 
             // btDone
             // 
+            this.btDone.AutoColor = true;
+            this.btDone.ButtonImage = null;
+            this.btDone.ButtonShape = HTAlt.WinForms.HTButton.ButtonShapes.Rectangle;
+            this.btDone.ClickColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btDone.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btDone.DrawImage = true;
-            this.btDone.FlatAppearance.BorderSize = 0;
-            this.btDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDone.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            this.btDone.ImageSizeMode = HTAlt.WinForms.HTButton.ButtonImageSizeMode.None;
             this.btDone.Location = new System.Drawing.Point(0, 138);
             this.btDone.Name = "btDone";
+            this.btDone.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.btDone.Size = new System.Drawing.Size(529, 23);
             this.btDone.TabIndex = 6;
             this.btDone.Text = "Done";
-            this.btDone.UseVisualStyleBackColor = true;
             this.btDone.Click += new System.EventHandler(this.btDone_Click);
             // 
             // timer1
@@ -189,7 +193,7 @@ namespace Korot
             // 
             // frmBlockSite
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(529, 161);
@@ -199,7 +203,7 @@ namespace Korot
             this.Controls.Add(this.tbUrl);
             this.Controls.Add(this.lbFilter);
             this.Controls.Add(this.lbUrl);
-            this.Font = new System.Drawing.Font("Ubuntu", 9F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

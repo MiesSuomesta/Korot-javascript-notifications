@@ -58,10 +58,10 @@ namespace Korot
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Ubuntu", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(395, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 20);
+            this.label1.Size = new System.Drawing.Size(20, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -69,10 +69,10 @@ namespace Korot
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Ubuntu", 12.5F);
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lbName.Location = new System.Drawing.Point(82, 23);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(126, 21);
+            this.lbName.Size = new System.Drawing.Size(125, 20);
             this.lbName.TabIndex = 1;
             this.lbName.Text = "Hello, [NAME] !";
             // 
@@ -96,9 +96,9 @@ namespace Korot
             // lbExport
             // 
             this.lbExport.AutoSize = true;
-            this.lbExport.Location = new System.Drawing.Point(12, 81);
+            this.lbExport.Location = new System.Drawing.Point(9, 81);
             this.lbExport.Name = "lbExport";
-            this.lbExport.Size = new System.Drawing.Size(120, 16);
+            this.lbExport.Size = new System.Drawing.Size(110, 15);
             this.lbExport.TabIndex = 7;
             this.lbExport.TabStop = true;
             this.lbExport.Text = "Export this profile...";
@@ -107,9 +107,9 @@ namespace Korot
             // lbSwitch
             // 
             this.lbSwitch.AutoSize = true;
-            this.lbSwitch.Location = new System.Drawing.Point(11, 101);
+            this.lbSwitch.Location = new System.Drawing.Point(9, 109);
             this.lbSwitch.Name = "lbSwitch";
-            this.lbSwitch.Size = new System.Drawing.Size(159, 16);
+            this.lbSwitch.Size = new System.Drawing.Size(147, 15);
             this.lbSwitch.TabIndex = 7;
             this.lbSwitch.TabStop = true;
             this.lbSwitch.Text = "Switch to another profile...";
@@ -118,9 +118,9 @@ namespace Korot
             // lbDelete
             // 
             this.lbDelete.AutoSize = true;
-            this.lbDelete.Location = new System.Drawing.Point(11, 121);
+            this.lbDelete.Location = new System.Drawing.Point(11, 141);
             this.lbDelete.Name = "lbDelete";
-            this.lbDelete.Size = new System.Drawing.Size(121, 16);
+            this.lbDelete.Size = new System.Drawing.Size(111, 15);
             this.lbDelete.TabIndex = 7;
             this.lbDelete.TabStop = true;
             this.lbDelete.Text = "Delete this profile...";
@@ -131,7 +131,7 @@ namespace Korot
             this.lbChangePic.AutoSize = true;
             this.lbChangePic.Location = new System.Drawing.Point(83, 50);
             this.lbChangePic.Name = "lbChangePic";
-            this.lbChangePic.Size = new System.Drawing.Size(104, 16);
+            this.lbChangePic.Size = new System.Drawing.Size(99, 15);
             this.lbChangePic.TabIndex = 7;
             this.lbChangePic.TabStop = true;
             this.lbChangePic.Text = "Change picture...";
@@ -178,9 +178,9 @@ namespace Korot
             // 
             // frmProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 150);
+            this.ClientSize = new System.Drawing.Size(415, 168);
             this.ControlBox = false;
             this.Controls.Add(this.lbDelete);
             this.Controls.Add(this.lbSwitch);
@@ -189,7 +189,7 @@ namespace Korot
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Ubuntu", 9F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

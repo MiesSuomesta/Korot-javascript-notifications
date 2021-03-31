@@ -396,17 +396,21 @@ namespace Korot
         {
             if (anaform.settingTab != null)
             {
+                anaform.Invoke(new Action(() => { 
                 anaform.SelectedTab = anaform.settingTab;
+                var frm = anaform.settingTab.Content as frmCEF;
+                frm.EditNewTabItem();
+                }));
             }
             else
             {
+                anaform.Invoke(new Action(() => { 
                 anaform.settingTab = ParentTab;
                 if (setmenu is null)
                 {
                     setmenu = new frmSettings(Settings, this)
                     {
                         TopLevel = false,
-                        FormBorderStyle = FormBorderStyle.None,
                         Dock = DockStyle.Fill,
                         Visible = true,
                         ShowInTaskbar = false,
@@ -414,8 +418,10 @@ namespace Korot
                     tpSettings.Controls.Add(setmenu);
                     setmenu.Show(); Settings.AllForms.Add(setmenu);
                 }
+                setmenu.SwitchNewTab();
                 allowSwitching = true;
                 tabControl1.SelectedTab = tpSettings;
+                }));
             }
         }
         private string searchText;
@@ -1066,9 +1072,13 @@ namespace Korot
                     Invoke(new Action(() => certError = false));
                     if (HTAlt.Tools.Brightness(Settings.Theme.BackColor) > 130)
                     {
-                        btRefresh.Image = Korot.Properties.Resources.cancel;
+                        if (btRefresh.InvokeRequired) { btRefresh.Invoke(new Action(() => btRefresh.ButtonImage = Korot.Properties.Resources.cancel)); }
+                        else{ btRefresh.ButtonImage = Korot.Properties.Resources.cancel;}
                     }
-                    else { btRefresh.Image = Korot.Properties.Resources.cancel_w; }
+                    else {
+                        if (btRefresh.InvokeRequired) { btRefresh.Invoke(new Action(() => btRefresh.ButtonImage = Korot.Properties.Resources.cancel_w)); }
+                        else { btRefresh.ButtonImage = Korot.Properties.Resources.cancel_w; }
+                    }
                 }
                 else
                 {
@@ -1079,10 +1089,14 @@ namespace Korot
                     }
                     if (HTAlt.Tools.Brightness(Settings.Theme.BackColor) > 130)
                     {
-                        btRefresh.Image = Korot.Properties.Resources.refresh;
+                        if (btRefresh.InvokeRequired) { btRefresh.Invoke(new Action(() => btRefresh.ButtonImage = Korot.Properties.Resources.refresh)); }
+                        else { btRefresh.ButtonImage = Korot.Properties.Resources.refresh; }
                     }
                     else
-                    { btRefresh.Image = Korot.Properties.Resources.refresh_w; }
+                    {
+                        if (btRefresh.InvokeRequired) { btRefresh.Invoke(new Action(() => btRefresh.ButtonImage = Korot.Properties.Resources.refresh_w)); }
+                        else { btRefresh.ButtonImage = Korot.Properties.Resources.refresh_w; }
+                    }
                 }
                 if (onCEFTab)
                 {
@@ -1721,6 +1735,14 @@ chromiumWebBrowser1.Address.ToLower().StartsWith("korot://incognito"))
                 cmsFavorite.ForeColor = ForeColor;
 
                 pbPrivacy.BackColor = backcolor2;
+
+                btBack.BackColor = BackColor;
+                btRefresh.BackColor = BackColor;
+                btHome.BackColor = BackColor;
+                btNext.BackColor = BackColor;
+                btFav.BackColor = BackColor;
+                btProfile.BackColor = BackColor;
+                btHamburger.BackColor = BackColor;
 
                 tbAddress.BackColor = backcolor2;
                 pbIncognito.BackColor = backcolor2;

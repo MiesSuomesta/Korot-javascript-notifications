@@ -51,8 +51,6 @@ namespace Korot
             // 
             this.button2.Text = "Add";
             this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.Location = new System.Drawing.Point(0, 313);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -60,7 +58,6 @@ namespace Korot
             this.button2.Size = new System.Drawing.Size(370, 27);
             this.button2.TabIndex = 0;
             this.button2.DrawImage = true;
-            this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // treeView1
@@ -126,8 +123,6 @@ namespace Korot
             // 
             this.button1.Text = "New Folder...";
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.Location = new System.Drawing.Point(0, 286);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -135,7 +130,6 @@ namespace Korot
             this.button1.Size = new System.Drawing.Size(370, 27);
             this.button1.TabIndex = 0;
             this.button1.DrawImage = true;
-            this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer1

@@ -1,5 +1,4 @@
 ﻿# Roadmap
-This roadmap shows plans for Korot. Keep in mind that this roadmap can be changed at any time.
 
 | Korot 0.8.3.0 | Status     | Description |
 |---------------|------------|-------------|
@@ -7,36 +6,24 @@ This roadmap shows plans for Korot. Keep in mind that this roadmap can be change
 
 •
 
-| Korot 0.8.4.0 | Status     | Description |
+| Korot 0.8.4.1 | Status     | Description |
 |---------------|------------|-------------|
-| October 2020  | Planned | Beta minor update. |
+| June 2021  | Complete | THe last update. |
 
 •
 
-| Korot 0.8.5.0 | Status     | Description |
+| Yorot | Status     | Description |
 |---------------|------------|-------------|
-| November 2020  | Planned | Beta minor update. |
+| June 2021  | Complete | [#SwitchToYorot](https://haltroy.com/korot2yorot.html) |
 
 •
 
-| Korot Android | Status     | Description |
-|---------------|------------|-------------|
-| November-December 2020 | Planned    | Port Korot to Android. |
+| Korot End of support | Status     | Description |
+|----------------------|------------|-------------|
+| August 2021          | Planned    | GitHub repository will be archived and all versions will be moved to HTArchives. |
 
 •
 
-| Korot Linux   | Status     | Description |
+| Repository Deletion   | Status     | Description |
 |---------------|------------|-------------|
-| December 2020 | Planned    | Port Korot to Linux. |
-
-•
-
-| Korot 0.9.0.0 | Status     | Description |
-|---------------|------------|-------------|
-| January 2021 | Planned    | First cross-platform update of Korot. |
-
-•
-
-| Korot 1.0.0.0 | Status     | Description |
-|---------------|------------|-------------|
-| March 2021 | Planned    | Gama (out of Beta) Release. |
+| December 2021 | Planned    | GitHub repository will be deleted and all the source codes will be transported to HTArchives alongside Playtroy. |
