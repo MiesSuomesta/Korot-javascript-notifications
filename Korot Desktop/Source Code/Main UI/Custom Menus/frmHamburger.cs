@@ -1,8 +1,8 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
 
@@ -251,13 +251,11 @@ namespace Korot
                 case DialogResult.OK:
                     cefform.TabColor = dialog.Color;
                     cefform.AutoTabColor = false;
-                    cefform.anaform.Invalidate();
                     break;
 
                 case DialogResult.Abort:
                     cefform.TabColor = BackColor;
                     cefform.AutoTabColor = true;
-                    cefform.anaform.Invalidate();
                     break;
             }
         }

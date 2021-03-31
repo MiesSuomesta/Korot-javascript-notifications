@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Korot Installer")]
-[assembly: AssemblyDescription("Utility for installing, updating, repairing and uninstalling Korot.")]
+[assembly: AssemblyTitle("Korot Updater")]
+[assembly: AssemblyDescription("Utility for updating Korot.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Haltroy")]
-[assembly: AssemblyProduct("Korot Installer")]
+[assembly: AssemblyProduct("Korot Updater")]
 [assembly: AssemblyCopyright("Copyright © Haltroy 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

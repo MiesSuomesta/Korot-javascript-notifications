@@ -1,11 +1,10 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using CefSharp;
 using System;
 using System.Security.Cryptography.X509Certificates;
@@ -51,17 +50,17 @@ namespace Korot
                     || request.TransitionType == TransitionType.ClientRedirect
                     || request.TransitionType == TransitionType.ServerRedirect))
                 {
-                    if (request.Url.ToLowerInvariant().StartsWith("korot") && (
-                        request.Url.ToLowerInvariant().StartsWith("korot://newtab")
-                              || request.Url.ToLowerInvariant().StartsWith("korot://links")
-                              || request.Url.ToLowerInvariant().StartsWith("korot://license")
-                              || request.Url.ToLowerInvariant().StartsWith("korot://incognito")))
+                    if (request.Url.ToLower().StartsWith("korot") && (
+                        request.Url.ToLower().StartsWith("korot://newtab")
+                              || request.Url.ToLower().StartsWith("korot://links")
+                              || request.Url.ToLower().StartsWith("korot://license")
+                              || request.Url.ToLower().StartsWith("korot://incognito")))
                     {
                         cefform.Invoke(new Action(() => cefform.redirectTo(request.Url, request.Url)));
                     }
                     else
                     {
-                        if (request.Url.ToLowerInvariant().StartsWith("devtools")) { return false; }
+                        if (request.Url.ToLower().StartsWith("devtools")) { return false; }
                         cefform.Invoke(new Action(() => cefform.redirectTo(request.Url, request.Url)));
                     }
                 }

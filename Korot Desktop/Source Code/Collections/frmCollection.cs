@@ -1,11 +1,10 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +25,6 @@ namespace Korot
             backButtons = new List<PictureBox>();
             defaultBackColor = new List<Control>();
             DefaultforeColor = new List<Control>();
-            timer1_Tick(this, new EventArgs());
             if (skipTo == -1)
             {
                 allowSwitch = true;

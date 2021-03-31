@@ -1,8 +1,8 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
 
@@ -50,13 +50,14 @@ namespace Korot
             set => HTAlt.Tools.WriteFile(GetUserFolder + "LASTSESSION.SFSOC", value, Encoding.Unicode);
         }
 
-        public static string ErrorMenu
+        public static string[] ErrorMenu
         {
             get
             {
                 if (File.Exists(GetUserFolder + "ERRORMENU.SFSOC"))
                 {
-                    return HTAlt.Tools.ReadFile(GetUserFolder + "ERRORMENU.SFSOC", Encoding.Unicode);
+                    char[] token = new char[] { Environment.NewLine.ToCharArray()[0] };
+                    return HTAlt.Tools.ReadFile(GetUserFolder + "ERRORMENU.SFSOC", Encoding.Unicode).Split(token);
                 }
                 else
                 {
@@ -66,7 +67,12 @@ namespace Korot
             }
             set
             {
-                HTAlt.Tools.WriteFile(GetUserFolder + "ERRORMENU.SFSOC", value, Encoding.Unicode);
+                string newval = "";
+                foreach (string x in value)
+                {
+                    newval += x + Environment.NewLine;
+                }
+                HTAlt.Tools.WriteFile(GetUserFolder + "ERRORMENU.SFSOC", newval, Encoding.Unicode);
             }
         }
     }

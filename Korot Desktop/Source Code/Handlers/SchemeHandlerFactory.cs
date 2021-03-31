@@ -1,17 +1,15 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using CefSharp;
+using CefSharp.WinForms;
 using HTAlt;
 using System;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,20 +34,32 @@ namespace Korot
             CefForm = _CefForm;
         }
 
-        public string StylizePage(string htmlCode)
+        public string GetBackStyle()
         {
-            return htmlCode.Replace("§BACKCOLOR§", Tools.ColorToHex(CefForm.Settings.Theme.BackColor))
-                .Replace("§BACKCOLOR2§", Tools.ColorToHex(Tools.ShiftBrightness(CefForm.Settings.Theme.BackColor, 20, false)))
-                .Replace("§BACKCOLOR3§", Tools.ColorToHex(Tools.ShiftBrightness(CefForm.Settings.Theme.BackColor, 60, false)))
-                .Replace("§FORECOLOR§", Tools.ColorToHex(CefForm.Settings.Theme.ForeColor))
-                .Replace("§OVERLAY§",Tools.ColorToHex(CefForm.Settings.Theme.OverlayColor))
-                .Replace("§OVERLAY2§", Tools.ColorToHex(Tools.ShiftBrightness(CefForm.Settings.Theme.OverlayColor,20,false)))
-                .Replace("§OCOLOR§", Tools.IsBright(CefForm.Settings.Theme.OverlayColor) ? "black" : "white");
+            if (CefForm.Settings.Theme.BackgroundStyle == "BACKCOLOR")
+            {
+                return "background-color: rgb(" + CefForm.Settings.Theme.BackColor.R + " ," + CefForm.Settings.Theme.BackColor.G + " , " + CefForm.Settings.Theme.BackColor.B + ");";
+            }
+            else
+            {
+                return CefForm.Settings.Theme.BackgroundStyle;
+            }
         }
 
         public string GetOverlay()
         {
             return "color: rgb(" + CefForm.Settings.Theme.OverlayColor.R + " ," + CefForm.Settings.Theme.OverlayColor.G + " , " + CefForm.Settings.Theme.OverlayColor.B + ");";
+        }
+
+        public string GetBackStyle2()
+        {
+            return "background-color: rgb(" + CefForm.Settings.Theme.BackColor.R + " ," + CefForm.Settings.Theme.BackColor.G + " , " + CefForm.Settings.Theme.BackColor.B + "); color: " + (HTAlt.Tools.IsBright(CefForm.Settings.Theme.BackColor) ? "black" : "white") + ";";
+        }
+
+        public string GetBackStyle3()
+        {
+            Color altBackColor = HTAlt.Tools.ShiftBrightness(CefForm.Settings.Theme.BackColor, 20, false);
+            return "background-color: rgb(" + altBackColor.R + " ," + altBackColor.G + " , " + altBackColor.B + "); color: " + (HTAlt.Tools.IsBright(altBackColor) ? "black" : "white") + ";";
         }
 
         private bool isBirthDay()
@@ -61,29 +71,29 @@ namespace Korot
         public string GetNewTabItems()
         {
             string x = "";
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite0 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite0) : "") + "</div>" + Environment.NewLine;
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite1 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite1) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite2 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite2) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite3 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite3) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite4 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite4) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite5 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite5) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite6 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite6) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite7 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite7) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite8 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite8) : "")  + "</div>" + Environment.NewLine; 
-            x += "<div class=\"grid-container-div\">" + (CefForm.Settings.NewTabSites.FavoritedSite9 != null ? CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite9) : "")  + "</div>" + Environment.NewLine; 
+            if (CefForm.Settings.NewTabSites.FavoritedSite0 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite0) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite1 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite1) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite2 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite2) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite3 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite3) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite4 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite4) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite5 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite5) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite6 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite6) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite7 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite7) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite8 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite8) + "</div>" + Environment.NewLine; }
+            if (CefForm.Settings.NewTabSites.FavoritedSite9 != null) { x += "<div>" + CefForm.Settings.NewTabSites.SiteToHTMLData(CefForm.Settings.NewTabSites.FavoritedSite9) + "</div>" + Environment.NewLine; }
             return x;
         }
 
         private string SearchPrettify(string x)
         {
-            if (x.ToLowerInvariant().StartsWith("http") ||
-                x.ToLowerInvariant().StartsWith("about") ||
-                x.ToLowerInvariant().StartsWith("korot") ||
-                x.ToLowerInvariant().StartsWith("file") ||
-                x.ToLowerInvariant().StartsWith("ftp") ||
-                x.ToLowerInvariant().StartsWith("smtp") ||
-                x.ToLowerInvariant().StartsWith("pop") ||
-                x.ToLowerInvariant().StartsWith("chrome"))
+            if (x.ToLower().StartsWith("http") ||
+                x.ToLower().StartsWith("about") ||
+                x.ToLower().StartsWith("korot") ||
+                x.ToLower().StartsWith("file") ||
+                x.ToLower().StartsWith("ftp") ||
+                x.ToLower().StartsWith("smtp") ||
+                x.ToLower().StartsWith("pop") ||
+                x.ToLower().StartsWith("chrome"))
             {
                 return x;
             }
@@ -99,35 +109,30 @@ namespace Korot
             {
                 if (schemeName == "korot")
                 {
-                    if (request.Url.ToLowerInvariant().StartsWith("korot://newtab"))
+                    if (request.Url.ToLower().StartsWith("korot://newtab"))
                     {
-                        return ResourceHandler.FromString(
-                            StylizePage(Properties.Resources.newtab.Replace("§BDAY§", isBirthDay() ? CefForm.anaform.HappyBDay : "")
-                            .Replace("§ITEMS§", GetNewTabItems())
-                            .Replace("§BORED§", CefForm.anaform.ImBored)
-                            .Replace("§SEARCHHELP§", CefForm.anaform.SearchHelpText)
-                            .Replace("§SEARCH§", CefForm.anaform.Search)
-                            .Replace("§DAYS§", CefForm.anaform.DayNames)
-                            .Replace("§MONTHS§", CefForm.anaform.MonthNames)
-                            .Replace("§TITLE§", CefForm.anaform.NewTabtitle)
-                            .Replace("§EDIT§", CefForm.anaform.NewTabEdit)));
+                        return ResourceHandler.FromString(Properties.Resources.newtab.Replace("§BDAY§", isBirthDay() ? CefForm.anaform.HappyBDay : "").Replace("§ITEMS§", GetNewTabItems()).Replace("§BACKSTYLE3§", GetBackStyle3()).Replace("§BACKSTYLE2§", GetBackStyle2()).Replace("§BACKSTYLE§", GetBackStyle()).Replace("§SEARCHHELP§", CefForm.anaform.SearchHelpText).Replace("§SEARCH§", CefForm.anaform.Search).Replace("§DAYS§", CefForm.anaform.DayNames).Replace("§MONTHS§", CefForm.anaform.MonthNames).Replace("§TITLE§", CefForm.anaform.NewTabtitle).Replace("§EDIT§", CefForm.anaform.NewTabEdit));
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://incognito"))
+                    else if (request.Url.ToLower().StartsWith("korot://incognito"))
                     {
                         return ResourceHandler.FromString(Properties.Resources.incognito.Replace("§TITLE§", CefForm.anaform.IncognitoT).Replace("§INCTITLE§", CefForm.anaform.IncognitoTitle).Replace("§INCTITLE1§", CefForm.anaform.IncognitoTitle1).Replace("§INCTITLE2§", CefForm.anaform.IncognitoTitle2).Replace("§INCTITLE1M1§", CefForm.anaform.IncognitoT1M1).Replace("§INCTITLE1M2§", CefForm.anaform.IncognitoT1M2).Replace("§INCTITLE1M3§", CefForm.anaform.IncognitoT1M3).Replace("§INCTITLE2M1§", CefForm.anaform.IncognitoT2M1).Replace("§INCTITLE2M2§", CefForm.anaform.IncognitoT2M2).Replace("§INCTITLE2M3§", CefForm.anaform.IncognitoT2M3));
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://technical"))
+                    else if (request.Url.ToLower().StartsWith("korot://technical"))
                     {
                         string KorotVersion = Application.ProductVersion.ToString();
                         HTInfo htinfo = new HTAlt.HTInfo();
                         string Arch = Environment.Is64BitProcess ? "amd64" : "i86";
                         string uAgent = KorotTools.GetUserAgent();
-                        return ResourceHandler.FromString(StylizePage(Properties.Resources.technical
+                        return ResourceHandler.FromString(Properties.Resources.technical
+                            .Replace("§BACKSTYLE2§", GetBackStyle2())
                             .Replace("§KOROTVER§", KorotVersion)
                             .Replace("§VER§", VersionInfo.VersionNumber.ToString())
                             .Replace("§CNAME§", VersionInfo.CodeName)
                             .Replace("§ARCH§", Arch)
                             .Replace("§OS§", System.Runtime.InteropServices.RuntimeInformation.OSDescription)
+                            .Replace("§BACKCOLOR§", HTAlt.Tools.ColorToHex(CefForm.Settings.Theme.BackColor))
+                            .Replace("§FORECOLOR§", HTAlt.Tools.ColorToHex(CefForm.Settings.Theme.ForeColor))
+                            .Replace("§OVERLAYCOLOR§", HTAlt.Tools.ColorToHex(CefForm.Settings.Theme.OverlayColor))
                             .Replace("§ARGS§", string.Join(" ", Environment.GetCommandLineArgs())).Replace("§APPPATH§", Application.ExecutablePath)
                             .Replace("§PROFILEPATH§", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\")
                             .Replace("§LANGPATH§", CefForm.Settings.LanguageSystem.LangFile)
@@ -138,28 +143,7 @@ namespace Korot
                             .Replace("§CHROMIUM§", Cef.ChromiumVersion)
                             .Replace("§CEF§", Cef.CefVersion)
                             .Replace("§CEFSHARP§", Cef.CefSharpVersion)
-                            .Replace("§AGENT§", uAgent)));
-                    }
-                    else if (request.Url.StartsWith("korot://rndwallpaper"))
-                    {
-                        if (browser.MainFrame.Url.StartsWith("korot"))
-                        {
-                            var themeimg = CefForm.Settings.GetRandomImageFromTheme();
-                            if (themeimg == null)
-                            {
-                                return ResourceHandler.FromString("");
-                            }
-                            else
-                            {
-                                var img = Tools.ReadFile(themeimg.ActualLocation);
-                                var type = new FileInfo(themeimg.ActualLocation).Extension.ToLowerInvariant().Substring(1); // ToLowerInvariant() => "I" - "ı" ToLowerInvariany() => "I" - "i"
-                                return ResourceHandler.FromStream(img, "image/" + type, false, null);
-                            }
-                        }
-                        else
-                        {
-                            return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url =  http://korot://error/?e=BLOCKED?u=" + browser.MainFrame.Url +" \" />");
-                        }
+                            .Replace("§AGENT§", uAgent));
                     }
                     else if (request.Url.StartsWith("korot://search/?q="))
                     {
@@ -174,10 +158,6 @@ namespace Korot
                             return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url=" + CefForm.Settings.SearchEngine + x + "\" />");
                         }
                     }
-                    else if (request.Url.StartsWith("korot://test"))
-                    {
-                        return ResourceHandler.FromString(Properties.Resources.test);
-                    }
                     else if (request.Url.StartsWith("korot://search/"))
                     {
                         string x = request.Url.Substring(request.Url.IndexOf("/", 10) + 1);
@@ -190,46 +170,22 @@ namespace Korot
                             return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url =" + CefForm.Settings.SearchEngine + x + "\" />");
                         }
                     }
-                    else if (request.Url.StartsWith("korot://command"))
+                    else if (request.Url.ToLower().StartsWith("korot://certerror"))
                     {
-                        if (frame.IsMain && CefForm.SessionSystem.Sessions.Count == 0)
-                        {
-                            string x = request.Url.Substring(request.Url.IndexOf("=", 10) + 1);
-                            return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url =  " + x +  " \" />");
-                        }
-                        else
-                        {
-                            return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url =  http://korot://error/?e=BLOCKED?u=" + browser.MainFrame.Url + " \" />");
-                        }
+                        return ResourceHandler.FromString(Properties.Resources.certerror.Replace("§TITLE§", CefForm.anaform.CertErrorPageTitle).Replace("§DESC§", CefForm.anaform.CertErrorPageMessage).Replace("§CONTINUE§", CefForm.anaform.CertErrorPageButton).Replace("§CERT§", CefForm.certificatedetails));
                     }
-                    else if (request.Url.StartsWith("korot://completerandom"))
-                    {
-                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url=" + CefForm.Settings.GiveRandomSite(true) + "\" />");
-                    }
-                    else if (request.Url.StartsWith("korot://random"))
-                    {
-                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url=" + CefForm.Settings.GiveRandomSite(false) + "\" />");
-                    }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://certerror"))
-                    {
-                        return ResourceHandler.FromString(Properties.Resources.certerror.Replace("§TITLE§", CefForm.anaform.CertErrorPageTitle)
-                            .Replace("§DESC§", CefForm.anaform.CertErrorPageMessage)
-                            .Replace("§CONTINUE§", CefForm.anaform.CertErrorPageButton)
-                            .Replace("§CERT§", CefForm.certificatedetails));
-                    }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://certcontinue"))
+                    else if (request.Url.ToLower().StartsWith("korot://certcontinue"))
                     {
                         CefForm.CertAllowedUrls.Add(CefForm.certErrorUrl);
                         return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url =" + CefForm.certErrorUrl + "\" />");
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://empty"))
+                    else if (request.Url.ToLower().StartsWith("korot://empty"))
                     {
                         return ResourceHandler.FromString("");
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://licenses"))
+                    else if (request.Url.ToLower().StartsWith("korot://licenses"))
                     {
-                        return ResourceHandler.FromString(StylizePage(Properties.Resources.licenses
-                            .Replace("§TITLE§", CefForm.anaform.licenseTitle)));
+                        return ResourceHandler.FromString(Properties.Resources.licenses.Replace("§OCOLOR§", Tools.IsBright(CefForm.Settings.Theme.OverlayColor) ? "black" : "white").Replace("§OVERLAYCOLOR§",Tools.ColorToHex(CefForm.Settings.Theme.OverlayColor)).Replace("§OVERLAYCOLOR2§", Tools.ColorToHex(Tools.ShiftBrightness(CefForm.Settings.Theme.OverlayColor,20,false))).Replace("§BACKSTYLE2§", GetBackStyle2()).Replace("§BACKSTYLE§", GetBackStyle()).Replace("§TITLE§", CefForm.anaform.licenseTitle));
                     }
                     else if (request.Url.StartsWith("korot://error"))
                     {
@@ -241,47 +197,28 @@ namespace Korot
                             x = x.Replace("?u" + errorPage, "");
                             errorPage = SearchPrettify(errorPage);
                         }
-                        if (!string.IsNullOrWhiteSpace(errorPage))
+                        if (!string.IsNullOrWhiteSpace(errorPage)) 
                         {
                             CheckInternetConnection(errorPage, frame);
                         }
-                        return ResourceHandler.FromString(StylizePage(Properties.Resources.errorpage.Replace("§RELOAD§", CefForm.anaform.Reload)
-                            .Replace("§ERROR§", x)
-                            .Replace("§URL§", (string.IsNullOrWhiteSpace(errorPage) ? "korot://empty" : errorPage))
-                            .Replace("§TITLE§", CefForm.anaform.ErrorPageTitle)
-                            .Replace("§KT§", CefForm.anaform.KT)
-                            .Replace("§ET§", CefForm.anaform.ET)
-                            .Replace("§E1§", CefForm.anaform.E1)
-                            .Replace("§E2§", CefForm.anaform.E2)
-                            .Replace("§E3§", CefForm.anaform.E3)
-                            .Replace("§E4§", CefForm.anaform.E4)
-                            .Replace("§RT§", CefForm.anaform.RT)
-                            .Replace("§R1§", CefForm.anaform.R1)
-                            .Replace("§R2§", CefForm.anaform.R2)
-                            .Replace("§R3§", CefForm.anaform.R3)
-                            .Replace("§R4§", CefForm.anaform.R4)));
+                        return ResourceHandler.FromString(Properties.Resources.errorpage.Replace("§RELOAD§", CefForm.anaform.Reload).Replace("§ERROR§", x).Replace("§URL§", (string.IsNullOrWhiteSpace(errorPage) ? "korot://empty" : errorPage)).Replace("§OVERLAY§", GetOverlay()).Replace("§BACKSTYLE2§", GetBackStyle2()).Replace("§BACKSTYLE§", GetBackStyle()).Replace("§TITLE§", CefForm.anaform.ErrorPageTitle).Replace("§KT§", CefForm.anaform.KT).Replace("§ET§", CefForm.anaform.ET).Replace("§E1§", CefForm.anaform.E1).Replace("§E2§", CefForm.anaform.E2).Replace("§E3§", CefForm.anaform.E3).Replace("§E4§", CefForm.anaform.E4).Replace("§RT§", CefForm.anaform.RT).Replace("§R1§", CefForm.anaform.R1).Replace("§R2§", CefForm.anaform.R2).Replace("§R3§", CefForm.anaform.R3).Replace("§R4§", CefForm.anaform.R4));
                     }
                     else if (request.Url.StartsWith("korot://noint"))
                     {
                         string x = request.Url.Substring(request.Url.IndexOf("=") + 1);
-                        return ResourceHandler.FromString(StylizePage(Properties.Resources.nointernet.Replace("§RELOAD§", CefForm.anaform.Reload)
-                            .Replace("§URL§", (string.IsNullOrWhiteSpace(x) ? "korot://empty" : x))
-                            .Replace("§TITLE§", CefForm.anaform.ErrorPageTitle)
-                            .Replace("§NI1§", CefForm.anaform.NoInt1)
-                            .Replace("§NI2§", CefForm.anaform.NoInt2)
-                            .Replace("§NI3§", CefForm.anaform.NoInt3)));
+                        return ResourceHandler.FromString(Properties.Resources.nointernet.Replace("§RELOAD§", CefForm.anaform.Reload).Replace("§URL§", (string.IsNullOrWhiteSpace(x) ? "korot://empty" : x)).Replace("§OVERLAY§", GetOverlay()).Replace("§BACKSTYLE2§", GetBackStyle2()).Replace("§BACKSTYLE§", GetBackStyle()).Replace("§TITLE§", CefForm.anaform.ErrorPageTitle).Replace("§NI1§", CefForm.anaform.NoInt1).Replace("§NI2§", CefForm.anaform.NoInt2).Replace("§NI3§", CefForm.anaform.NoInt3));
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://dad"))
+                    else if (request.Url.ToLower().StartsWith("korot://dad"))
                     {
                         return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = https://haltroy.com \" />");
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://me"))
+                    else if (request.Url.ToLower().StartsWith("korot://me"))
                     {
                         return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = https://haltroy.com/Korot.html \" />");
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://links"))
+                    else if (request.Url.ToLower().StartsWith("korot://links"))
                     {
-                        return ResourceHandler.FromString(StylizePage(Properties.Resources.korotlinks));
+                        return ResourceHandler.FromString(Properties.Resources.korotlinks.Replace("§BACKSTYLE2§", GetBackStyle2()));
                     }
                     else if (request.Url.StartsWith("korot://extension"))
                     {
@@ -307,9 +244,9 @@ namespace Korot
                                 }
                             }
                         }
-                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=BLOCKED?u=" + browser.MainFrame.Url + " \" />");
+                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=BLOCKED \" />");
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://refresh"))
+                    else if (request.Url.ToLower().StartsWith("korot://refresh"))
                     {
                         if (isExt)
                         {
@@ -321,35 +258,33 @@ namespace Korot
                             }
                             else
                             {
-                                return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=NOT_ACTUAL_KOROT_PAGE?u=" + browser.MainFrame.Url + " \" />");
+                                return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=NOT_ACTUAL_KOROT_PAGE \" />");
                             }
                         }
                         else
                         {
-                            return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=NOT_ACTUAL_KOROT_PAGE?u=" + browser.MainFrame.Url + " \" />");
+                            return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=NOT_ACTUAL_KOROT_PAGE \" />");
                         }
                     }
-                    else if (request.Url.ToLowerInvariant().StartsWith("korot://folder") || request.Url.ToLowerInvariant().StartsWith("korot://root"))
+                    else if (request.Url.ToLower().StartsWith("korot://folder") || request.Url.ToLower().StartsWith("korot://root"))
                     {
-                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=NOT_KOROT_PAGE?u=" + browser.MainFrame.Url + " \" />");
+                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=NOT_KOROT_PAGE \" />");
                     }
                     else
                     {
-                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=FILE_NOT_FOUND?u=" + browser.MainFrame.Url + " \" />");
+                        return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url = http://korot://error/?e=FILE_NOT_FOUND \" />");
                     }
                 }
                 return new ResourceHandler();
             }
             else
             {
-                return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url =  http://korot://error/?e=BLOCKED?u=" + browser.MainFrame.Url + " \" />");
+                return ResourceHandler.FromString("<meta http-equiv=\"Refresh\" content=\"0; url =  http://korot://error/?e=BLOCKED \" />");
             }
         }
-
-        private async void CheckInternetConnection(string url, IFrame frame)
+        private async void CheckInternetConnection(string url,IFrame frame)
         {
-            await Task.Run(() =>
-            {
+            await Task.Run(() => {
                 if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
                 {
                     frame.LoadUrl("korot://noint/?u=" + url);
