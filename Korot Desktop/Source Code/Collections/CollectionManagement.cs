@@ -1,10 +1,11 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -33,7 +34,7 @@ namespace Korot
                 Collections.Clear();
             }
             XmlDocument document = new XmlDocument();
-            if (string.IsNullOrWhiteSpace(collections) || collections.ToLower().Replace(Environment.NewLine, "") == "<collections></collections>")
+            if (string.IsNullOrWhiteSpace(collections) || collections.ToLowerInvariant().Replace(Environment.NewLine, "") == "<collections></collections>")
             {
                 return true;
             }
@@ -42,7 +43,7 @@ namespace Korot
             // This is the part where fun begins.
             foreach (XmlNode node in document.FirstChild.ChildNodes)
             {
-                if (node.Name.ToLower() == "collection") //Top must always only have Collections. This ain't favorites.
+                if (node.Name.ToLowerInvariant() == "collection") //Top must always only have Collections. This ain't favorites.
                 {
                     Collection newCol = new Collection(); // New Collection to add
                     // Collection - ID
@@ -66,7 +67,7 @@ namespace Korot
                     // Items
                     foreach (XmlNode subnode in node.ChildNodes)
                     {
-                        if (subnode.Name.ToLower() == "text") //TextItem
+                        if (subnode.Name.ToLowerInvariant() == "text") //TextItem
                         {
                             TextItem item = new TextItem(); //New Item
                             // Item - ID
@@ -153,7 +154,7 @@ namespace Korot
                             }
                             newCol.CollectionItems.Add(item); //Final touch
                         }
-                        else if (subnode.Name.ToLower() == "link") //LinkItem
+                        else if (subnode.Name.ToLowerInvariant() == "link") //LinkItem
                         {
                             LinkItem item = new LinkItem(); //New Item
                             // Item - ID
@@ -249,7 +250,7 @@ namespace Korot
                             }
                             newCol.CollectionItems.Add(item); //Final touch
                         }
-                        else if (subnode.Name.ToLower() == "image") //ImageItem
+                        else if (subnode.Name.ToLowerInvariant() == "image") //ImageItem
                         {
                             ImageItem item = new ImageItem(); //New Item
                             // Item - ID
@@ -399,7 +400,7 @@ namespace Korot
             Text = document.FirstChild.Attributes["Text"] == null ? ID : document.FirstChild.Attributes["Text"].Value;
             foreach (XmlNode subnode in document.FirstChild.ChildNodes)
             {
-                if (subnode.Name.ToLower() == "text") //TextItem
+                if (subnode.Name.ToLowerInvariant() == "text") //TextItem
                 {
                     TextItem item = new TextItem(); //New Item
                                                     // Item - ID
@@ -486,7 +487,7 @@ namespace Korot
                     }
                     CollectionItems.Add(item); //Final touch
                 }
-                else if (subnode.Name.ToLower() == "link") //LinkItem
+                else if (subnode.Name.ToLowerInvariant() == "link") //LinkItem
                 {
                     LinkItem item = new LinkItem(); //New Item
                                                     // Item - ID
@@ -582,7 +583,7 @@ namespace Korot
                     }
                     CollectionItems.Add(item); //Final touch
                 }
-                else if (subnode.Name.ToLower() == "image") //ImageItem
+                else if (subnode.Name.ToLowerInvariant() == "image") //ImageItem
                 {
                     ImageItem item = new ImageItem(); //New Item
                                                       // Item - ID
@@ -640,7 +641,7 @@ namespace Korot
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xmlCode);
             XmlElement subnode = doc.DocumentElement;
-            if (subnode.Name.ToLower() == "text") //TextItem
+            if (subnode.Name.ToLowerInvariant() == "text") //TextItem
             {
                 TextItem item = new TextItem(); //New Item
                                                 // Item - ID
@@ -727,7 +728,7 @@ namespace Korot
                 }
                 CollectionItems.Add(item); //Final touch
             }
-            else if (subnode.Name.ToLower() == "link") //LinkItem
+            else if (subnode.Name.ToLowerInvariant() == "link") //LinkItem
             {
                 LinkItem item = new LinkItem(); //New Item
                                                 // Item - ID
@@ -823,7 +824,7 @@ namespace Korot
                 }
                 CollectionItems.Add(item); //Final touch
             }
-            else if (subnode.Name.ToLower() == "image") //ImageItem
+            else if (subnode.Name.ToLowerInvariant() == "image") //ImageItem
             {
                 ImageItem item = new ImageItem(); //New Item
                                                   // Item - ID

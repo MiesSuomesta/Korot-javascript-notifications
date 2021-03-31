@@ -1,10 +1,11 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
+
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -17,7 +18,7 @@ namespace Korot
     {
         private readonly string favName;
         private readonly string favUrl;
-        private readonly frmCEF Cefform;
+        private frmCEF Cefform;
 
         public frmMain anaform()
         {
@@ -117,6 +118,7 @@ namespace Korot
         private void frmNewFav_Load(object sender, EventArgs e)
         {
             LoadDynamicMenu();
+            treeView1.SelectedNode = treeView1.Nodes[0];
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -145,7 +147,7 @@ namespace Korot
             }
         }
 
-        private readonly string iconStorage = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\IconStorage\\";
+        private string iconStorage => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\" + Cefform.Settings.ProfileName + "\\IconStorage\\";
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -250,22 +252,30 @@ namespace Korot
         {
             treeView1_NodeMouseClick(sender, null);
         }
-
+        bool favApplied = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
             Text = Cefform.anaform.newFavorite;
+            if (!favApplied)
+            {
+                textBox1.Text = favName;
+                textBox2.Text = favUrl;
+                favApplied = true;
+            }
+            htButton1.Text = Cefform.anaform.Reset;
             button2.Text = Cefform.anaform.add;
             button1.Text = Cefform.anaform.newFolder;
             label1.Text = Cefform.anaform.nametd;
             label2.Text = Cefform.anaform.urltd;
-            textBox1.Text = favName;
-            textBox2.Text = favUrl;
             BackColor = Cefform.Settings.Theme.BackColor;
             Color BackColor2 = Cefform.Settings.NinjaMode ? Cefform.Settings.Theme.BackColor : HTAlt.Tools.ShiftBrightness(Cefform.Settings.Theme.BackColor, 20, false);
+            Color BackColor3 = Cefform.Settings.NinjaMode ? Cefform.Settings.Theme.BackColor : HTAlt.Tools.ShiftBrightness(Cefform.Settings.Theme.BackColor, 40, false);
+            Color BackColor4 = Cefform.Settings.NinjaMode ? Cefform.Settings.Theme.BackColor : HTAlt.Tools.ShiftBrightness(Cefform.Settings.Theme.BackColor, 60, false);
             ForeColor = Cefform.Settings.NinjaMode ? Cefform.Settings.Theme.BackColor : Cefform.Settings.Theme.ForeColor;
-            button1.BackColor = BackColor2;
+            button1.NormalColor = BackColor2; button1.HoverColor = BackColor3; button1.ClickColor = BackColor4;
+            button2.NormalColor = BackColor2; button2.HoverColor = BackColor3; button2.ClickColor = BackColor4;
+            htButton1.NormalColor = BackColor2; htButton1.HoverColor = BackColor3; htButton1.ClickColor = BackColor4;
             button1.ForeColor = Cefform.Settings.NinjaMode ? Cefform.Settings.Theme.BackColor : Cefform.Settings.Theme.ForeColor;
-            button2.BackColor = BackColor2;
             button2.ForeColor = Cefform.Settings.NinjaMode ? Cefform.Settings.Theme.BackColor : Cefform.Settings.Theme.ForeColor;
             //button3.BackColor = BackColor2;
             //button3.ForeColor = Settings.NinjaMode ? Settings.Theme.BackColor :  Settings.Theme.ForeColor;
@@ -279,6 +289,12 @@ namespace Korot
             textBox1.Width = Width - (label1.Width + 50);
             textBox2.Location = new Point(label2.Location.X + label2.Width, label2.Location.Y);
             textBox2.Width = Width - (label2.Width + 50);
+        }
+
+        private void htButton1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = favName;
+            textBox2.Text = favUrl;
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
 
@@ -140,7 +140,7 @@ namespace Korot
             DialogResult dialog = fileDialog.ShowDialog();
             if (dialog == DialogResult.OK)
             {
-                ZipFile.ExtractToDirectory(fileDialog.FileName, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\", Encoding.Unicode);
+                ZipFile.ExtractToDirectory(fileDialog.FileName, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\", Encoding.UTF8);
             }
         }
 

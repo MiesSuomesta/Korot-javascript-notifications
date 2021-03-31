@@ -1,8 +1,8 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
 
@@ -14,13 +14,13 @@ namespace Korot
 {
     public partial class frmHistory : Form
     {
-        private readonly frmCEF cefecik; //bunu kim yazdı -gogle
+        private readonly frmCEF cefecik;
 
-        public frmHistory(frmCEF cefcik) //ben yazdım ağam -ht
+        public frmHistory(frmCEF cefcik)
         {
-            cefecik = cefcik; //şaka mı bu abi sikerim belanı ha yavşak -gologe
-            //this is so sad can we get 31 likes sjsjsjsj
+            cefecik = cefcik; //removed. oha kotu kelmıe yazmıs :O Ö 😮
             InitializeComponent();
+            timer1_Tick(this,new EventArgs());
         }
 
         private readonly List<Panel> panelList = new List<Panel>();

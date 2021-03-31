@@ -1,11 +1,11 @@
 ﻿<head>
-<!-- 
+    <!--
 
-Copyright © 2020 Eren "Haltroy" Kanat
+    Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
--->
+    -->
     <meta charset="utf-8" />
     <title>§TITLE§</title>
     <!--
@@ -25,7 +25,9 @@ Use of this source code is governed by MIT License that can be found in github.c
         }
 
         body {
-            §BACKSTYLE2§ font-family: Ubuntu;
+            background-color: §BACKCOLOR§;
+            color: §FORECOLOR§;
+            font-family: Ubuntu;
             background-size: cover;
             position: relative;
             background-repeat: no-repeat;
@@ -44,13 +46,15 @@ Use of this source code is governed by MIT License that can be found in github.c
         }
 
             li::before {
-                §OVERLAY§ content: "• ";
+               color: §OVERLAYCOLOR§;
+               content: "• ";
             }
 
         button {
             font-family: Ubuntu;
             font-size: large;
-            §BACKSTYLE2§
+            background-color: §BACKCOLOR2§;
+            color: §FORECOLOR§;
         }
     </style>
 </head>

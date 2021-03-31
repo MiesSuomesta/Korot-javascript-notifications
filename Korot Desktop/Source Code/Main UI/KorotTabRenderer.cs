@@ -1,8 +1,8 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
 
@@ -482,7 +482,7 @@ namespace Korot
             bool maximizeButtonHighligted = _maximizeRestoreButtonArea.Contains(cursor);
             bool isMaximized = _parentWindow.WindowState == FormWindowState.Maximized;
             graphicsContext.FillRectangle(new SolidBrush(maximizeButtonHighligted ? activeColor : inactiveColor), _maximizeRestoreButtonArea);
-            graphicsContext.DrawRectangle(new Pen(maximizeButtonHighligted ? fColor2 : fColor1, 1F), _maximizeRestoreButtonArea.X + ((_maximizeRestoreButtonArea.Width / 5) * 2), _maximizeRestoreButtonArea.Y + ((_maximizeRestoreButtonArea.Height / 5) * 2), _maximizeRestoreButtonArea.Width / 5, (!isMaximized ? _maximizeRestoreButtonArea.Width : _maximizeRestoreButtonArea.Height) / 5);
+            graphicsContext.DrawRectangle(new Pen(maximizeButtonHighligted ? fColor2 : fColor1, 1F), _maximizeRestoreButtonArea.X + ((_maximizeRestoreButtonArea.Width / 5) * 2), _maximizeRestoreButtonArea.Y + ((_maximizeRestoreButtonArea.Height / 5) * 2), _maximizeRestoreButtonArea.Width / 5, _maximizeRestoreButtonArea.Width / 5);
             //graphicsContext.DrawImage(_parentWindow.WindowState == FormWindowState.Maximized ? _restoreImage : _maximizeImage, _maximizeRestoreButtonArea.X + 17, _maximizeRestoreButtonArea.Y + 9);
 
             // Close
