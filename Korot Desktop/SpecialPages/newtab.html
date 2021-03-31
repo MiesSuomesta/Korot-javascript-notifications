@@ -1,27 +1,31 @@
 <html>
-<!--
+<!-- 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 -->
 <head>
 	<title>§TITLE§</title>
+	<script>
+			function EditItem()
+		{
+		CefSharp.PostMessage("[Korot.EditNewTabItem]");
+		}
+	</script>
 	<style>
 		body {
-			background-color: §BACKCOLOR§;
-			color: §FORECOLOR§;
-			background-image: url("korot://rndwallpaper");
-			background-size: cover;
+			§BACKSTYLE§ background-size: cover;
 			position: relative;
 			background-repeat: no-repeat;
 			background-size: 100% 100vh;
 		}
-		button {
-			background-color: §BACKCOLOR2§;
-			color: §FORECOLOR§;
+
+		.bw {
 			font-family: Ubuntu;
+			background-color: rgba(0,0,0,0.5);
+			color: white;
 		}
 
 		.merkez {
@@ -32,15 +36,14 @@ Use of this source code is governed by an MIT License that can be found in githu
 			top: 15%;
 			left: 25%;
 			width: 100%;
-			font-family: Ubuntu;
+			heigth: 100%;
 			transform: translateX(-25%) translateY(-25%);
 		}
 
 		input {
 			font-family: Ubuntu;
 			font-size: large;
-			background-color: §BACKCOLOR2§;
-			color: §FORECOLOR§;
+			§BACKSTYLE2§
 		}
 
 			input[type=text] {
@@ -48,23 +51,24 @@ Use of this source code is governed by an MIT License that can be found in githu
 			}
 
 		.grid-container {
-			display: grid;
-			§BACKSTYLE§ display: grid;
+			§BACKSTYLE2§ display: grid;
 			font-family: Ubuntu;
 			grid-template-columns: auto auto auto auto auto;
 			grid-gap: 10px;
 			padding: 10px;
 		}
 
-            grid-container-div {
-                background-color: §BACKCOLOR2§;
-                color: §FORECOLOR§;
-                padding: 20px 0;
-                font-family: Ubuntu;
-                text-align: center;
-                font-size: 30px;
-            }
+			.grid-container > div {
+				§BACKSTYLE3§ font-family: Ubuntu;
+				text-align: center;
+				font-size: 30px;
+			}
 
+		.editItem {
+			font-family: Ubuntu;
+			font-size: small;
+			grid-area: 3 / 1 / 3 / 6;
+		}
 	</style>
 
 	<script>
@@ -106,10 +110,12 @@ Use of this source code is governed by an MIT License that can be found in githu
 		</form>
 		<div class="grid-container">
 			§ITEMS§
+			<div class="editItem">
+				<a onclick="EditItem()" style="§BACKSTYLE3§">§EDIT§</a>
+			</div>
 		</div>
-		<button class="bw" onclick="CefSharp.PostMessage('[Korot.EditNewTabItem]')">§EDIT§</button>
-		<button class="bw" onclick="window.location.href = 'korot://random'">§BORED§</button>
-		<h3 class="bw">§BDAY§</h3>
+		<a class="bw" href="https://haltroy.com/korot2yorot.html">#SwitchToYorot</a>
+		<a class="bw">§BDAY§</a>
 	</panel>
 </body>
 </html>

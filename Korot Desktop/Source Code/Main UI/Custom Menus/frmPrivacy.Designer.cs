@@ -2,7 +2,7 @@
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
 
@@ -92,7 +92,6 @@ namespace Korot
             // 
             this.btCert.Text = "Show certificate error...";
             this.btCert.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btCert.AutoSize = true;
             this.btCert.Location = new System.Drawing.Point(0, 112);
             this.btCert.Name = "btCert";
             this.btCert.Size = new System.Drawing.Size(325, 23);
@@ -104,7 +103,6 @@ namespace Korot
             // 
             this.btSite.Text = "Manage settings...";
             this.btSite.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btSite.AutoSize = true;
             this.btSite.Location = new System.Drawing.Point(0, 89);
             this.btSite.Name = "btSite";
             this.btSite.Size = new System.Drawing.Size(325, 23);

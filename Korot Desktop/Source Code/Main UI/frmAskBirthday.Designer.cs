@@ -2,7 +2,7 @@
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
 
@@ -141,7 +141,6 @@ namespace Korot
             // 
             this.btOK.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btOK.AutoSize = true;
             this.btOK.Location = new System.Drawing.Point(18, 165);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(404, 23);

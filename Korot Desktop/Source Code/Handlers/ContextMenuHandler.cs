@@ -1,20 +1,19 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using CefSharp;
-using IWshRuntimeLibrary;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Speech.Synthesis;
 using System.Text;
+using System.Speech;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
 
 namespace Korot
 {
@@ -56,8 +55,6 @@ namespace Korot
                 tsSep2 = new System.Windows.Forms.ToolStripSeparator();
                 missSpellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                 readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                createShortcutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                shortcutDesktopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                 pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                 cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                 copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,8 +95,6 @@ namespace Korot
             tsSep2,
             missSpellToolStripMenuItem,
             readToolStripMenuItem,
-            createShortcutToolStripMenuItem,
-            shortcutDesktopToolStripMenuItem,
             copyToolStripMenuItem,
             cutToolStripMenuItem,
             pasteToolStripMenuItem,
@@ -141,8 +136,7 @@ namespace Korot
                 printToolStripMenuItem.Click += new System.EventHandler(printToolStripMenuItem_Click);
                 showDevToolsToolStripMenuItem.Click += new System.EventHandler(showDevToolsToolStripMenuItem_Click);
                 viewSourceToolsToolStripMenuItem.Click += new System.EventHandler(viewSourceToolsToolStripMenuItem_Click);
-                createShortcutToolStripMenuItem.Click += new System.EventHandler(createShortcut_Click);
-                shortcutDesktopToolStripMenuItem.Click += new System.EventHandler(quickhortcut_Click);
+
             }
             cmsCef.SuspendLayout();
             //
@@ -221,14 +215,6 @@ namespace Korot
             // readToolStripMenuItem
             //
             readToolStripMenuItem.Text = ActiveForm.anaform.ReadTTS;
-            //
-            // createShortcutToolStripMenuItem
-            //
-            createShortcutToolStripMenuItem.Text = ActiveForm.anaform.CreateShortcut;
-            //
-            // shortcutDesktopToolStripMenuItem
-            //
-            shortcutDesktopToolStripMenuItem.Text = ActiveForm.anaform.CreateShortcutToDesktop;
             //
             // pasteToolStripMenuItem
             //
@@ -315,8 +301,6 @@ namespace Korot
         public System.Windows.Forms.ToolStripMenuItem saveImageAsToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem missSpellToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem createShortcutToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem shortcutDesktopToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
@@ -353,7 +337,7 @@ namespace Korot
         private void RefreshDict()
         {
             missSpellToolStripMenuItem.DropDown.Items.Clear();
-            foreach (string x in DictSuggestions)
+            foreach(string x in DictSuggestions)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem
                 {
@@ -430,82 +414,13 @@ namespace Korot
                 extensionsTSMI.DropDown.Items.Add(empty);
             }
         }
-
-        private void createShortcut_Click(object sender, EventArgs e)
-        {
-            string url = "";
-            if (!string.IsNullOrWhiteSpace(SelectionText) && HTAlt.Tools.ValidUrl(SelectionText))
-            {
-                url = SelectionText;
-            }
-            if (!string.IsNullOrWhiteSpace(SourceUrl))
-            {
-                url = SourceUrl;
-            }
-            if (!string.IsNullOrWhiteSpace(LinkUrl))
-            {
-                url = LinkUrl;
-            }
-            if (!string.IsNullOrWhiteSpace(UnfilteredLinkUrl))
-            {
-                url = UnfilteredLinkUrl;
-            }
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Title = ActiveForm.anaform.CreateShortcut;
-            dialog.Filter = ActiveForm.anaform.ShortcutKorot + "|*.korot|" +ActiveForm.anaform.ShortcutNormal + "|*.url";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                bool isKorotShortcut = dialog.FileName.ToLowerInvariant().EndsWith("korot");
-                if (isKorotShortcut)
-                {
-                    WshShell shell = new WshShell();
-                    IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(dialog.FileName.Substring(0,dialog.FileName.Length - 5) + "lnk");
-                    shortcut.TargetPath = Application.ExecutablePath;
-                    shortcut.Arguments = url;
-                    shortcut.Save();
-                }
-                else
-                {
-                    HTAlt.Tools.WriteFile(dialog.FileName, "[InternetShortcut]" + Environment.NewLine + "URL=" + url,Encoding.UTF8);
-                }
-            }
-        }
-
-        private void quickhortcut_Click(object sender, EventArgs e)
-        {
-            string url = "";
-            if (!string.IsNullOrWhiteSpace(SelectionText) && HTAlt.Tools.ValidUrl(SelectionText))
-            {
-                url = SelectionText;
-            }
-            if (!string.IsNullOrWhiteSpace(SourceUrl))
-            {
-                url = SourceUrl;
-            }
-            if (!string.IsNullOrWhiteSpace(LinkUrl))
-            {
-                url = LinkUrl;
-            }
-            if (!string.IsNullOrWhiteSpace(UnfilteredLinkUrl))
-            {
-                url = UnfilteredLinkUrl;
-            }
-            string shortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + ActiveForm.anaform.KorotShortcut + "_" + HTAlt.Tools.GenerateRandomText() + ".lnk";
-            WshShell shell = new WshShell();
-            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
-            shortcut.TargetPath = Application.ExecutablePath;
-            shortcut.Arguments = url;
-            shortcut.Save();
-        }
-
-        private void read_Click(object sender, EventArgs e)
+        private void read_Click(object sender,EventArgs e)
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.Volume = ActiveForm.Settings.SynthVolume;
             synth.Rate = ActiveForm.Settings.SynthRate;
             synth.SpeakAsync(SelectionText);
         }
-
         private void item_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
@@ -576,7 +491,6 @@ namespace Korot
             addToCollection.DropDown.Items.Add(tsSepCol);
             addToCollection.DropDown.Items.Add(newCollection);
         }
-
         private string MisspelledWord;
         private string LinkUrl;
         private string UnfilteredLinkUrl;
@@ -587,7 +501,7 @@ namespace Korot
         private string SelectionText;
         private string[] DictSuggestions;
 
-        public void showCMS(IContextMenuParams CMparams, IWebBrowser cwb)
+        public void showCMS(IContextMenuParams CMparams,IWebBrowser cwb)
         {
             MisspelledWord = CMparams.MisspelledWord;
             LinkUrl = CMparams.LinkUrl;
@@ -617,14 +531,11 @@ namespace Korot
                 missSpellToolStripMenuItem.Enabled = true;
                 missSpellToolStripMenuItem.Visible = true;
                 RefreshDict();
-            }
-            else
+            }else
             {
                 missSpellToolStripMenuItem.Enabled = false;
                 missSpellToolStripMenuItem.Visible = false;
             }
-            createShortcutToolStripMenuItem.Enabled = !string.IsNullOrWhiteSpace(SelectionText) || !string.IsNullOrWhiteSpace(LinkUrl) || !string.IsNullOrWhiteSpace(UnfilteredLinkUrl) || !string.IsNullOrWhiteSpace(SourceUrl);
-            shortcutDesktopToolStripMenuItem.Enabled = !string.IsNullOrWhiteSpace(SelectionText) || !string.IsNullOrWhiteSpace(LinkUrl) || !string.IsNullOrWhiteSpace(UnfilteredLinkUrl) || !string.IsNullOrWhiteSpace(SourceUrl);
             // Links
             openLinkInBackToolStripMenuItem.Visible = !string.IsNullOrWhiteSpace(LinkUrl);
             openLinkInNewTabToolStripMenuItem.Visible = !string.IsNullOrWhiteSpace(LinkUrl);
@@ -680,11 +591,10 @@ namespace Korot
 
         public ContextMenuStrip currentCMS;
 
-        private void addToDict_Click(object sender, EventArgs e)
+        private void addToDict_Click(object sender,EventArgs e)
         {
             chromiumWebBrowser1.AddWordToDictionary(MisspelledWord);
         }
-
         private void dictWord_Click(object sender, EventArgs e)
         {
             if (sender is null) { return; }

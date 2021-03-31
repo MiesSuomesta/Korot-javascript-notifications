@@ -2,7 +2,7 @@
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
 namespace Korot
@@ -61,41 +61,38 @@ namespace Korot
             // 
             // btDefault
             // 
+            this.btDefault.Text = "Set to Default";
             this.btDefault.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btDefault.DrawImage = true;
-            this.btDefault.AutoSize = true;
             this.btDefault.Location = new System.Drawing.Point(0, 205);
             this.btDefault.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btDefault.Name = "btDefault";
             this.btDefault.Size = new System.Drawing.Size(446, 26);
             this.btDefault.TabIndex = 1;
-            this.btDefault.Text = "Set to Default";
+            this.btDefault.DrawImage = true;
             this.btDefault.Click += new System.EventHandler(this.button1_Click);
             // 
             // btOK
             // 
+            this.btOK.Text = "OK";
             this.btOK.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btOK.DrawImage = true;
-            this.btOK.AutoSize = true;
             this.btOK.Location = new System.Drawing.Point(0, 231);
             this.btOK.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(446, 26);
             this.btOK.TabIndex = 1;
-            this.btOK.Text = "OK";
+            this.btOK.DrawImage = true;
             this.btOK.Click += new System.EventHandler(this.button2_Click);
             // 
             // btCancel
             // 
+            this.btCancel.Text = "Cancel";
             this.btCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btCancel.DrawImage = true;
-            this.btCancel.AutoSize = true;
             this.btCancel.Location = new System.Drawing.Point(0, 179);
             this.btCancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(446, 26);
             this.btCancel.TabIndex = 1;
-            this.btCancel.Text = "Cancel";
+            this.btCancel.DrawImage = true;
             this.btCancel.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox1

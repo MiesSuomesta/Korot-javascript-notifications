@@ -1,17 +1,15 @@
 <head>
-    <!--
+<!-- 
 
-    Copyright © 2020 Eren "Haltroy" Kanat
+Copyright © 2020 Eren "Haltroy" Kanat
 
-    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
-    -->
+-->
     <title>§TITLE§</title>
     <style>
         body {
-            background-color: §BACKCOLOR§;
-            color: §FORECOLOR§;
-            font-family: Ubuntu;
+            §BACKSTYLE2§ font-family: Ubuntu;
             background-size: cover;
             position: relative;
             background-repeat: no-repeat;
@@ -21,12 +19,13 @@
         .btn-group button {
             background-color: §OVERLAYCOLOR§;
             border: 1px solid §OVERLAYCOLOR§;
-            color: §OCOLOR§; 
-            padding: 10px 24px; 
-            cursor: pointer; 
-            float: left; 
+            color: §OCOLOR§; /* White text */
+            padding: 10px 24px; /* Some padding */
+            cursor: pointer; /* Pointer/hand icon */
+            float: left; /* Float the buttons side by side */
         }
 
+        /* Clear floats (clearfix hack) */
         .btn-group:after {
             content: "";
             clear: both;
@@ -34,9 +33,10 @@
         }
 
         .btn-group button:not(:last-child) {
-            border-right: none; 
+            border-right: none; /* Prevent double borders */
         }
 
+        /* Add a background color on hover */
         .btn-group button:hover {
             background-color: §OVERLAYCOLOR2§;
         }
@@ -132,4 +132,5 @@
         <button onClick="location.href='https://github.com/lstratman/Win32Interop'">Website</button>
         <!-- Couldn't find license <button onClick="location.href=''">License</button> -->
     </div>
+
 </body>

@@ -2,7 +2,7 @@
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
 namespace Korot
@@ -246,12 +246,11 @@ namespace Korot
             // bt3DOT
             // 
             this.bt3DOT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt3DOT.DrawImage = true;
-            this.bt3DOT.AutoSize = true;
             this.bt3DOT.Location = new System.Drawing.Point(440, 45);
             this.bt3DOT.Name = "bt3DOT";
             this.bt3DOT.Size = new System.Drawing.Size(27, 26);
             this.bt3DOT.TabIndex = 4;
+            this.bt3DOT.DrawImage = true;
             this.bt3DOT.Click += new System.EventHandler(this.button2_Click);
             // 
             // flpProp
@@ -440,15 +439,14 @@ namespace Korot
             // 
             // btDone
             // 
+            this.btDone.Text = "Done";
             this.btDone.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btDone.DrawImage = true;
-            this.btDone.AutoSize = true;
             this.btDone.Location = new System.Drawing.Point(0, 474);
             this.btDone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btDone.Name = "btDone";
             this.btDone.Size = new System.Drawing.Size(492, 28);
             this.btDone.TabIndex = 5;
-            this.btDone.Text = "Done";
+            this.btDone.DrawImage = true;
             this.btDone.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer1

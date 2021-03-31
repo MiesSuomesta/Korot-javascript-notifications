@@ -1,11 +1,10 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -17,11 +16,13 @@ namespace Korot
     public partial class frmOOBE : Form
     {
         private readonly Settings Settings;
+        private bool isKorotDead = false;
 
-        public frmOOBE(Settings settings)
+        public frmOOBE(Settings settings,bool isDead)
         {
             Settings = settings;
             InitializeComponent();
+            isKorotDead = isDead;
             foreach (Control x in Controls)
             {
                 try { x.Font = new Font("Ubuntu", x.Font.Size, x.Font.Style); } catch { continue; }
@@ -32,7 +33,6 @@ namespace Korot
         private string profilePath;
         public string Yes = "Yes";
         public string No = "No";
-        public string closeMessage = "The installation is not completed yet. Do you still want to close this?";
         public string OK = "OK";
         public string Cancel = "Cancel";
 
@@ -65,35 +65,22 @@ namespace Korot
                     switchedTimes++;
                     Settings.LanguageSystem.ReadFromFile(Application.StartupPath + "\\Lang\\" + lbLang.SelectedItem.ToString() + ".klf", true);
                     Text = Settings.LanguageSystem.GetItemText("OOBETitle");
-                    btContinue.Text = Settings.LanguageSystem.GetItemText("OOBEContinue");
+                    btContinue.Text = Settings.LanguageSystem.GetItemText("Close");
                     btContinue2.Text = Settings.LanguageSystem.GetItemText("OOBEContinue");
-                    btBack.Text = Settings.LanguageSystem.GetItemText("OOBEBack");
-                    btBack1.Text = Settings.LanguageSystem.GetItemText("OOBEBack");
-                    btFinish.Text = Settings.LanguageSystem.GetItemText("OOBEButtonFinish");
-                    lbTip1.Text = Settings.LanguageSystem.GetItemText("OOBEExtensionInfo");
                     lbWelcome.Text = Settings.LanguageSystem.GetItemText("OOBEWelcome");
-                    lbProfile.Text = Settings.LanguageSystem.GetItemText("OOBEProfile");
-                    lbNotContain.Text = Settings.LanguageSystem.GetItemText("OOBENotContain");
-                    lbProfileInfo.Text = Settings.LanguageSystem.GetItemText("OOBEProfileInfo");
-                    tbTip2.Text = Settings.LanguageSystem.GetItemText("Themes");
-                    tbTip1.Text = Settings.LanguageSystem.GetItemText("Extensions");
-                    lbTipTitle.Text = Settings.LanguageSystem.GetItemText("Extensions");
-                    lbTip2.Text = Settings.LanguageSystem.GetItemText("OOBEThemeInfo");
-                    lbTip3.Text = Settings.LanguageSystem.GetItemText("OOBEProfilesInfo");
-                    tbTipF.Text = Settings.LanguageSystem.GetItemText("OOBEBestWishes");
-                    tbTip3.Text = Settings.LanguageSystem.GetItemText("OOBEProfilesTitle");
-                    lbTipF.Text = Settings.LanguageSystem.GetItemText("YoureGoodToGo");
                     lbChooseLang.Text = Settings.LanguageSystem.GetItemText("ChooseALanguage");
                     lbCont.Text = Settings.LanguageSystem.GetItemText("OOBEContinueInfo");
-                    lbArrowKey.Text = Settings.LanguageSystem.GetItemText("OOBEArrowKeys");
-                    lbContinueBack.Text = Settings.LanguageSystem.GetItemText("OOBEContinueBack");
-                    lbFinishBack.Text = Settings.LanguageSystem.GetItemText("OOBEFinishBack");
+                    if (isKorotDead)
+                    {
+                        lbContinueBack.Text = Settings.LanguageSystem.GetItemText("OOBEKorotDeath").Replace("[NEWLINE]", Environment.NewLine);
+                    }else
+                    {
+                        lbContinueBack.Text = Settings.LanguageSystem.GetItemText("OOBEKorotIsDying").Replace("[NEWLINE]", Environment.NewLine);
+                    }
                     Yes = Settings.LanguageSystem.GetItemText("Yes");
                     No = Settings.LanguageSystem.GetItemText("No");
                     OK = Settings.LanguageSystem.GetItemText("OK");
                     Cancel = Settings.LanguageSystem.GetItemText("Cancel");
-                    closeMessage = Settings.LanguageSystem.GetItemText("OOBECloseMessage");
-                    lbBanned.Location = new Point(lbNotContain.Location.X + 5 + lbNotContain.Width, lbNotContain.Location.Y);
                     btContinue2.Visible = true;
                 }
             }
@@ -103,83 +90,23 @@ namespace Korot
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            textBox1.Text = textBox1.Text.Replace("/", "").Replace("\\", "").Replace("\"", "").Replace(":", "").Replace("?", "").Replace("*", "").Replace("<", "").Replace(">", "").Replace("|", "");
-            if (textBox1.Text.Length < 3) { btContinue.Visible = false; } else { btContinue.Visible = true; }
-        }
+        
 
         private void frmOOBE_Load(object sender, EventArgs e)
         {
-            if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\"))
-            {
-                Program.RemoveDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\", false);
-            }
             RefreshLangList();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             tmrLang.Stop();
-            tabControl2.SelectedTab = tbTip1;
             allowSwitch = true;
             tabControl1.SelectedTab = tabPage2;
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            allowSwitch = true;
-            tabControl1.SelectedTab = tabPage1;
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            allowSwitch = true;
-            tabControl1.SelectedTab = tabPage3;
-        }
-
-        public bool IsDirectoryEmpty(string path)
-        {
-            try
-            {
-                if (Directory.GetDirectories(path).Length > 0) { return false; } else { return true; }
-            }
-            catch (Exception)
-            {
-                return true;
-            }
-        }
-
-        private bool allowClose = false;
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SafeFileSettingOrganizedClass.LastUser = textBox1.Text;
-            profilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\" + SafeFileSettingOrganizedClass.LastUser + "\\Profiles\\";
-            Directory.CreateDirectory(profilePath);
-            KorotTools.createFolders();
-            Settings.ProfileName = textBox1.Text;
-            Settings.Save();
-            allowClose = true;
-            Process.Start(Application.ExecutablePath);
             Application.Exit();
-        }
-
-        private void frmOOBE_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!allowClose)
-            {
-                HTAlt.WinForms.HTMsgBox msgBox = new HTAlt.WinForms.HTMsgBox(Text, closeMessage, new HTAlt.WinForms.HTDialogBoxContext(MessageBoxButtons.YesNo)) { Yes = Yes, No = No, OK = OK, Cancel = Cancel, AutoForeColor = false, ForeColor = Settings.Theme.ForeColor, BackColor = Settings.Theme.BackColor, Icon = Icon };
-                if (msgBox.ShowDialog() == DialogResult.Yes)
-                {
-                    e.Cancel = false;
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-            }
-            else { e.Cancel = false; }
         }
 
         private void lbLang_DoubleClick(object sender, EventArgs e)
@@ -196,52 +123,6 @@ namespace Korot
                     tmrLang.Stop();
                 }
             }
-        }
-
-        private void pbPrev_Click(object sender, EventArgs e)
-        {
-            if (tabControl2.SelectedTab != tbTip1)
-            {
-                if (tabControl2.SelectedTab == tbTip2)
-                {
-                    tabControl2.SelectedTab = tbTip1;
-                }
-                else if (tabControl2.SelectedTab == tbTip3)
-                {
-                    tabControl2.SelectedTab = tbTip2;
-                }
-                else if (tabControl2.SelectedTab == tbTipF)
-                {
-                    tabControl2.SelectedTab = tbTip3;
-                }
-            }
-            pbNext.Visible = tabControl2.SelectedIndex != (tabControl2.TabCount - 1);
-            pbPrev.Visible = tabControl2.SelectedIndex != 0;
-            btFinish.Visible = tabControl2.SelectedTab == tbTipF;
-            lbTipTitle.Text = tabControl2.SelectedTab.Text;
-        }
-
-        private void pbNext_Click(object sender, EventArgs e)
-        {
-            if (tabControl2.SelectedTab != tbTipF)
-            {
-                if (tabControl2.SelectedTab == tbTip1)
-                {
-                    tabControl2.SelectedTab = tbTip2;
-                }
-                else if (tabControl2.SelectedTab == tbTip2)
-                {
-                    tabControl2.SelectedTab = tbTip3;
-                }
-                else if (tabControl2.SelectedTab == tbTip3)
-                {
-                    tabControl2.SelectedTab = tbTipF;
-                }
-            }
-            lbTipTitle.Text = tabControl2.SelectedTab.Text;
-            pbNext.Visible = tabControl2.SelectedIndex != (tabControl2.TabCount - 1);
-            pbPrev.Visible = tabControl2.SelectedIndex != 0;
-            btFinish.Visible = tabControl2.SelectedTab == tbTipF;
         }
 
         private void lbLang_Click(object sender, EventArgs e)
@@ -269,14 +150,6 @@ namespace Korot
                 return;
             }
             lbLang.SelectedIndex = lbLang.SelectedIndex == lbLang.Items.Count - 1 ? 0 : lbLang.SelectedIndex + 1;
-        }
-
-        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lbTipTitle.Text = tabControl2.SelectedTab.Text;
-            pbNext.Visible = tabControl2.SelectedIndex != (tabControl2.TabCount - 1);
-            pbPrev.Visible = tabControl2.SelectedIndex != 0;
-            btFinish.Visible = tabControl2.SelectedTab == tbTipF;
         }
     }
 }

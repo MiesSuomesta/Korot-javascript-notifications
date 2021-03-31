@@ -2,7 +2,7 @@
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
 
@@ -80,7 +80,6 @@ namespace Korot
             // 
             this.btSite.Text = "Learn more...";
             this.btSite.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btSite.AutoSize = true;
             this.btSite.Location = new System.Drawing.Point(0, 77);
             this.btSite.Name = "btSite";
             this.btSite.Size = new System.Drawing.Size(380, 23);

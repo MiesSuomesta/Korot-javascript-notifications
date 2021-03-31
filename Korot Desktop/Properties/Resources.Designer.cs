@@ -8,6 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+/* 
+
+Copyright © 2020 Eren "Haltroy" Kanat
+
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+
+*/
+
 namespace Korot.Properties {
     using System;
     
@@ -193,6 +201,16 @@ namespace Korot.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueColors {
+            get {
+                object obj = ResourceManager.GetObject("BlueColors", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel {
             get {
                 object obj = ResourceManager.GetObject("cancel", resourceCulture);
@@ -232,13 +250,6 @@ namespace Korot.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;head&gt;
-        ///    &lt;!--
-        ///
-        ///    Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
-        ///
-        ///    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
-        ///
-        ///    --&gt;
         ///    &lt;title&gt;Korot&lt;/title&gt;
         ///    &lt;style&gt;
         ///        body {
@@ -253,7 +264,15 @@ namespace Korot.Properties {
         ///            background: #400000;
         ///            color: white;
         ///        }
-        /// [rest of string was truncated]&quot;;.
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h1&gt;§TITLE§&lt;/h1&gt;
+        ///    &lt;h3&gt;§DESC§&lt;/h3&gt;
+        ///    &lt;a&gt;§CERT§&lt;/a&gt;
+        ///    &lt;/br&gt;
+        ///    &lt;/br&gt;
+        ///    &lt;button onclick=&quot;window.location.href = &apos;korot://certcontinue&apos;&quot;&gt;§CONTINUE§ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string certerror {
             get {
@@ -433,19 +452,16 @@ namespace Korot.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;head&gt;
-        ///    &lt;!--
+        ///    &lt;!--MIT License
         ///
-        ///    Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
+        ///    Copyright (c) 2020 Eren &quot;Haltroy&quot; Kanat
         ///
-        ///    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
-        ///
-        ///    --&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
-        ///    &lt;title&gt;§TITLE§&lt;/title&gt;
-        ///    &lt;!--
-        ///        Hello am 48 year man from somalia. Sorry for my bed england. I selled my wife for internet connection
-        ///        for play &quot;conter strik&quot; and i want to become the goodest player like you I play with 400 ping on
-        ///        brazil and i am gl [rest of string was truncated]&quot;;.
+        ///    Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///    of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///    in the Software without restriction, including without limitation the rights
+        ///    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///    copies of the Software, and to permit persons to whom the Software is
+        ///    furnished to do so, subject t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string errorpage {
             get {
@@ -529,6 +545,16 @@ namespace Korot.Properties {
         internal static System.Drawing.Bitmap fullscreen_w {
             get {
                 object obj = ResourceManager.GetObject("fullscreen-w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GreenColors {
+            get {
+                object obj = ResourceManager.GetObject("GreenColors", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -655,28 +681,16 @@ namespace Korot.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;head&gt;
-        ///    &lt;!--
+        ///    &lt;!--MIT License
         ///
-        ///    Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
+        ///    Copyright (c) 2020 Eren &quot;Haltroy&quot; Kanat
         ///
-        ///    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
-        ///
-        ///    --&gt;
-        ///    &lt;style&gt;
-        ///        .content {
-        ///            max-width: 500px;
-        ///            margin: auto;
-        ///        }
-        ///
-        ///        body {
-        ///            font-family: Ubuntu;
-        ///            background-color: rgb(33,33,33);
-        ///            color: white;
-        ///        }
-        ///    &lt;/style&gt;
-        ///    &lt;title&gt;§TITLE§&lt;/title&gt;
-        ///&lt;/head&gt;
-        ///&lt;body class=&quot;content&quot;&gt; [rest of string was truncated]&quot;;.
+        ///    Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///    of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///    in the Software without restriction, including without limitation the rights
+        ///    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///    copies of the Software, and to permit persons to whom the Software is
+        ///    furnished to do so, subject t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string incognito {
             get {
@@ -707,36 +721,6 @@ namespace Korot.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kdark {
-            get {
-                object obj = ResourceManager.GetObject("kdark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap klight {
-            get {
-                object obj = ResourceManager.GetObject("klight", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap kmidnight {
-            get {
-                object obj = ResourceManager.GetObject("kmidnight", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Korot {
             get {
                 object obj = ResourceManager.GetObject("Korot", resourceCulture);
@@ -757,26 +741,16 @@ namespace Korot.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
-        ///&lt;!--
+        ///&lt;!--MIT License
         ///
-        ///Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
+        ///Copyright (c) 2020 Eren &quot;Haltroy&quot; Kanat
         ///
-        ///Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
-        ///
-        ///--&gt;
-        ///&lt;head&gt;
-        ///    &lt;title&gt;Korot Links&lt;/title&gt;
-        ///    &lt;style&gt;
-        ///        body {
-        ///            §BACKSTYLE2§ font-family: Ubuntu;
-        ///            background-size: cover;
-        ///            position: relative;
-        ///            background-repeat: no-repeat;
-        ///            background-size: 100% 100vh;
-        ///        }
-        ///    &lt;/style&gt;
-        ///&lt;/head&gt;
-        ///&lt;body [rest of string was truncated]&quot;;.
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string korotlinks {
             get {
@@ -836,25 +810,16 @@ namespace Korot.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;head&gt;
-        ///    &lt;!--
+        ///    &lt;!--MIT License
         ///
-        ///    Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
+        ///    Copyright (c) 2020 Eren &quot;Haltroy&quot; Kanat
         ///
-        ///    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
-        ///
-        ///    --&gt;
-        ///    &lt;title&gt;§TITLE§&lt;/title&gt;
-        ///    &lt;style&gt;
-        ///        body {
-        ///            §BACKSTYLE2§ font-family: Ubuntu;
-        ///            background-size: cover;
-        ///            position: relative;
-        ///            background-repeat: no-repeat;
-        ///            background-size: 100% 100vh;
-        ///        }
-        ///
-        ///        .btn-group button {
-        ///           [rest of string was truncated]&quot;;.
+        ///    Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///    of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///    in the Software without restriction, including without limitation the rights
+        ///    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///    copies of the Software, and to permit persons to whom the Software is
+        ///    furnished to do so, subject t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string licenses {
             get {
@@ -934,27 +899,18 @@ namespace Korot.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;html&gt;
-        ///&lt;!--
+        ///&lt;!--MIT License
         ///
-        ///Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
+        ///Copyright (c) 2020 Eren &quot;Haltroy&quot; Kanat
         ///
-        ///Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
         ///
-        ///--&gt;
-        ///&lt;head&gt;
-        ///    &lt;title&gt;§TITLE§&lt;/title&gt;
-        ///    &lt;script&gt;
-        ///			function EditItem()
-        ///		{
-        ///		CefSharp.PostMessage(&quot;[Korot.EditNewTabItem]&quot;);
-        ///		}
-        ///    &lt;/script&gt;
-        ///    &lt;style&gt;
-        ///        body {
-        ///            §BACKSTYLE§ background-size: cover;
-        ///            position: relative;
-        ///            background-repeat: no-repeat;
-        ///            background- [rest of string was truncated]&quot;;.
+        ///T [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string newtab {
             get {
@@ -984,22 +940,16 @@ namespace Korot.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;head&gt;
-        ///    &lt;!--
+        ///    &lt;!--MIT License
         ///
-        ///    Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
+        ///    Copyright (c) 2020 Eren &quot;Haltroy&quot; Kanat
         ///
-        ///    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
-        ///
-        ///    --&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
-        ///    &lt;title&gt;§TITLE§&lt;/title&gt;
-        ///    &lt;!--
-        ///        Hello am 48 year man from somalia. Sorry for my bed england. I not selled my wife for internet connection
-        ///        for nothing. please no copy pasterino my story.
-        ///        --&gt;
-        ///    &lt;style&gt;
-        ///        .center {
-        ///            margin: auto;        /// [rest of string was truncated]&quot;;.
+        ///    Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///    of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///    in the Software without restriction, including without limitation the rights
+        ///    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///    copies of the Software, and to permit persons to whom the Software is
+        ///    furnished to do so, subject t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string nointernet {
             get {
@@ -1039,12 +989,15 @@ namespace Korot.Properties {
         /// * Korot Desktop Client 0.6 and later
         /// * github.com/haltroy/korot
         /// */
+        ///
+        /////
+        ///// Does the browser support the the Notification API?
+        ///// .. and does it have a permission property?
+        /////
         ///function makeid(length) {
         ///	var result = &apos;&apos;;
         ///	var characters = &apos;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&apos;;
-        ///	var charactersLength = characters.length;
-        ///	for (var i = 0; i &lt; length; i++) {
-        ///		result += characters.charAt(Math.floor(Math.random() * ch [rest of string was truncated]&quot;;.
+        ///	var charactersLength = char [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string notificationDefault {
             get {
@@ -1073,20 +1026,22 @@ namespace Korot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-16&quot;?&gt;
-        ///&lt;RandomSites&gt;
-        ///  &lt;RandomSite Url=&quot;https://www.boredbutton.com/random&quot; /&gt;
-        ///  &lt;RandomSite Url=&quot;https://www.discuvver.com/jump2.php&quot; /&gt;
-        ///  &lt;RandomSite Url=&quot;https://en.wikipedia.org/wiki/Special:RandomInCategory/Computer_programming&quot; /&gt;
-        ///  &lt;RandomSite Url=&quot;http://heeeeeeeey.com/&quot; /&gt;
-        ///  &lt;RandomSite Url=&quot;http://corndog.io/&quot; /&gt;
-        ///  &lt;RandomSite Url=&quot;https://alwaysjudgeabookbyitscover.com&quot; /&gt;
-        ///  &lt;RandomSite Url=&quot;http://thatsthefinger.com/&quot; /&gt;
-        ///  &lt;RandomSite Url=&quot;http://cant-no [rest of string was truncated]&quot;;.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string randomSites {
+        internal static System.Drawing.Bitmap PurpleColors {
             get {
-                return ResourceManager.GetString("randomSites", resourceCulture);
+                object obj = ResourceManager.GetObject("PurpleColors", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedColors {
+            get {
+                object obj = ResourceManager.GetObject("RedColors", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1312,25 +1267,16 @@ namespace Korot.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;head&gt;
-        ///    &lt;!--
+        ///    &lt;!--MIT License
         ///
-        ///    Copyright © 2020 Eren &quot;Haltroy&quot; Kanat
+        ///    Copyright (c) 2020 Eren &quot;Haltroy&quot; Kanat
         ///
-        ///    Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
-        ///
-        ///    --&gt;
-        ///    &lt;title&gt;Korot&lt;/title&gt;
-        ///    &lt;style&gt;
-        ///        body {
-        ///            §BACKSTYLE2§ font-family: Ubuntu;
-        ///            background-size: cover;
-        ///            position: relative;
-        ///            background-repeat: no-repeat;
-        ///            background-size: 100% 100vh;
-        ///        }
-        ///
-        ///        textarea {
-        ///            §BACKSTYL [rest of string was truncated]&quot;;.
+        ///    Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///    of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///    in the Software without restriction, including without limitation the rights
+        ///    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///    copies of the Software, and to permit persons to whom the Software is
+        ///    furnished to do so, subject t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string technical {
             get {
@@ -1359,32 +1305,6 @@ namespace Korot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
-        ///
-        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-        ///&lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
-        ///    &lt;title&gt;Korot Test&lt;/title&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///    &lt;h1&gt;Korot Test&lt;/h1&gt;
-        ///    &lt;a&gt;This page is for testing purposes only.&lt;/a&gt;
-        ///    &lt;h2&gt;IMAGE TEST&lt;/h2&gt;
-        ///    &lt;a&gt;IMG SRC&lt;/a&gt;
-        ///    &lt;img src=&quot;korot://korotlogo&quot; /&gt;
-        ///    &lt;br /&gt;
-        ///    &lt;a&gt;IFRAME&lt;/a&gt;
-        ///    &lt;iframe src=&quot;korot://korotlogo&quot;&gt;&lt;/iframe&gt;
-        ///&lt;/body&gt;
-        ///&lt;/html&gt;.
-        /// </summary>
-        internal static string test {
-            get {
-                return ResourceManager.GetString("test", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap theme {
@@ -1400,6 +1320,316 @@ namespace Korot.Properties {
         internal static System.Drawing.Bitmap theme_w {
             get {
                 object obj = ResourceManager.GetObject("theme_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeAvocado {
+            get {
+                object obj = ResourceManager.GetObject("ThemeAvocado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeBlue {
+            get {
+                object obj = ResourceManager.GetObject("ThemeBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeBrick {
+            get {
+                object obj = ResourceManager.GetObject("ThemeBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeBrown {
+            get {
+                object obj = ResourceManager.GetObject("ThemeBrown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeCement {
+            get {
+                object obj = ResourceManager.GetObject("ThemeCement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeCreme {
+            get {
+                object obj = ResourceManager.GetObject("ThemeCreme", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeCrimson {
+            get {
+                object obj = ResourceManager.GetObject("ThemeCrimson", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeDark {
+            get {
+                object obj = ResourceManager.GetObject("ThemeDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeDarkBlue {
+            get {
+                object obj = ResourceManager.GetObject("ThemeDarkBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeDarkLeaf {
+            get {
+                object obj = ResourceManager.GetObject("ThemeDarkLeaf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeDodgerBlue {
+            get {
+                object obj = ResourceManager.GetObject("ThemeDodgerBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeEmerald {
+            get {
+                object obj = ResourceManager.GetObject("ThemeEmerald", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeFuchsia {
+            get {
+                object obj = ResourceManager.GetObject("ThemeFuchsia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeGold {
+            get {
+                object obj = ResourceManager.GetObject("ThemeGold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeGray {
+            get {
+                object obj = ResourceManager.GetObject("ThemeGray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeGreen {
+            get {
+                object obj = ResourceManager.GetObject("ThemeGreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeLavender {
+            get {
+                object obj = ResourceManager.GetObject("ThemeLavender", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeLeather {
+            get {
+                object obj = ResourceManager.GetObject("ThemeLeather", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeLight {
+            get {
+                object obj = ResourceManager.GetObject("ThemeLight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeMidnight {
+            get {
+                object obj = ResourceManager.GetObject("ThemeMidnight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeOrange {
+            get {
+                object obj = ResourceManager.GetObject("ThemeOrange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemePink {
+            get {
+                object obj = ResourceManager.GetObject("ThemePink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemePurple {
+            get {
+                object obj = ResourceManager.GetObject("ThemePurple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeRaspberry {
+            get {
+                object obj = ResourceManager.GetObject("ThemeRaspberry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeRed {
+            get {
+                object obj = ResourceManager.GetObject("ThemeRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeSea {
+            get {
+                object obj = ResourceManager.GetObject("ThemeSea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeShadow {
+            get {
+                object obj = ResourceManager.GetObject("ThemeShadow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeStrawberry {
+            get {
+                object obj = ResourceManager.GetObject("ThemeStrawberry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeSunrise {
+            get {
+                object obj = ResourceManager.GetObject("ThemeSunrise", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeTeal {
+            get {
+                object obj = ResourceManager.GetObject("ThemeTeal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThemeYellow {
+            get {
+                object obj = ResourceManager.GetObject("ThemeYellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1500,6 +1730,16 @@ namespace Korot.Properties {
         internal static System.Drawing.Bitmap web_w {
             get {
                 object obj = ResourceManager.GetObject("web_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YellowColors {
+            get {
+                object obj = ResourceManager.GetObject("YellowColors", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

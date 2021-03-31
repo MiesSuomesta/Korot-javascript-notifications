@@ -1,11 +1,10 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using CefSharp;
 using System;
 using System.IO;
@@ -37,7 +36,7 @@ namespace Korot
 
         public void OnBeforeDownload(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IBeforeDownloadCallback callback)
         {
-            if (downloadItem.SuggestedFileName.ToLowerInvariant().EndsWith(".kef"))
+            if (downloadItem.SuggestedFileName.ToLower().EndsWith(".kef"))
             {
                 if (ValidHaltroyWebsite(downloadItem.OriginalUrl))
                 {
@@ -47,7 +46,7 @@ namespace Korot
                     }
                     downloadItem.FullPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Korot\\DownloadTemp\\" + downloadItem.SuggestedFileName;
                     callback.Continue(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Korot\\DownloadTemp\\" + downloadItem.SuggestedFileName, false);
-                    ActiveForm.Invoke(new Action(() => ActiveForm.ShowHamburgerNotification()));
+                    //ActiveForm.Invoke(new Action(() => ActiveForm.btHamburger.FlatAppearance.BorderSize = 1));
                 }
                 else
                 {
@@ -55,7 +54,7 @@ namespace Korot
                     {
                         downloadItem.FullPath = ActiveForm.Settings.Downloads.DownloadDirectory + "\\" + downloadItem.SuggestedFileName;
                         callback.Continue(ActiveForm.Settings.Downloads.DownloadDirectory + "\\" + downloadItem.SuggestedFileName, false);
-                        ActiveForm.Invoke(new Action(() => ActiveForm.ShowHamburgerNotification()));
+                        //ActiveForm.Invoke(new Action(() => ActiveForm.btHamburger.FlatAppearance.BorderSize = 1));
                     }
                     else
                     {
@@ -64,7 +63,7 @@ namespace Korot
                         {
                             downloadItem.FullPath = saveFileDialog1.FileName;
                             callback.Continue(saveFileDialog1.FileName, false);
-                            ActiveForm.Invoke(new Action(() => ActiveForm.ShowHamburgerNotification()));
+                            //ActiveForm.Invoke(new Action(() => ActiveForm.btHamburger.FlatAppearance.BorderSize = 1));
                         }
                     }
                 }
@@ -75,7 +74,7 @@ namespace Korot
                 {
                     downloadItem.FullPath = ActiveForm.Settings.Downloads.DownloadDirectory + "\\" + downloadItem.SuggestedFileName;
                     callback.Continue(ActiveForm.Settings.Downloads.DownloadDirectory + "\\" + downloadItem.SuggestedFileName, false);
-                    ActiveForm.Invoke(new Action(() => ActiveForm.ShowHamburgerNotification()));
+                    //ActiveForm.Invoke(new Action(() => ActiveForm.btHamburger.FlatAppearance.BorderSize = 1));
                 }
                 else
                 {
@@ -84,7 +83,7 @@ namespace Korot
                     {
                         downloadItem.FullPath = saveFileDialog1.FileName;
                         callback.Continue(saveFileDialog1.FileName, false);
-                        ActiveForm.Invoke(new Action(() => ActiveForm.ShowHamburgerNotification()));
+                        //ActiveForm.Invoke(new Action(() => ActiveForm.btHamburger.FlatAppearance.BorderSize = 1));
                     }
                 }
             }
@@ -117,7 +116,7 @@ namespace Korot
             }
             if (downloadItem.IsComplete)
             {
-                if (downloadItem.FullPath.ToLowerInvariant().EndsWith(".kef") || downloadItem.FullPath.ToLowerInvariant().EndsWith(".ktf"))
+                if (downloadItem.FullPath.ToLower().EndsWith(".kef") || downloadItem.FullPath.ToLower().EndsWith(".ktf"))
                 {
                     frmInstallExt ınstallExt = new frmInstallExt(ActiveForm.Settings, downloadItem.FullPath, Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\" + SafeFileSettingOrganizedClass.LastUser + "\\Extensions" + Path.GetFileNameWithoutExtension(downloadItem.FullPath)));
                     ınstallExt.Show();

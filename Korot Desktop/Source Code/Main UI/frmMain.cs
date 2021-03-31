@@ -1,22 +1,19 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using CefSharp;
 using EasyTabs;
 using HTAlt.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -33,12 +30,9 @@ namespace Korot
         public List<frmNotification> notifications { get; set; }
 
         public bool newDownload = false;
-        public bool isUpdateAvailable = false;
-        public bool isUpdateError = false;
         public bool isIncognito = false;
         public TitleBarTab licenseTab = null;
         public TitleBarTab settingTab = null;
-        public WebClient WebC;
 
         #region Notification Listener
 
@@ -195,29 +189,8 @@ namespace Korot
 
         #endregion Notification Listener
 
-
         #region "Translate"
-        public string ThemeCustom = "Custom";
-        public string ThemeYou = "You";
-        public string ThemeApply = "Apply";
-        public string ThemeSave = "Save";
-        public string ThemeSaveName = "Enter a name for this new theme:";
-        public string ThemeSaveAuthor = "Enter your name:";
-        public string ThemeSaveDesc = "Enter a desciption:";
-        public string ThemeSaveCategory = "Please select a category for this theme:";
-        public string ThemeSaveTo = "Save theme to...";
-        public string ThemeSaveWallpaper = "Also add my selected wallpapers.";
-        public string ThemeSaveFilter = "Korot Theme";
-        public string Reset = "Reset...";
-        public string CreateShortcutToDesktop = "Create Shortcut to Desktop";
-        public string CreateShortcut = "Create Shortcut...";
-        public string KorotShortcut = "Korot Shortcut";
-        public string ShortcutNormal = "Shortcut (Normal)";
-        public string ShortcutKorot = "Shortcut (Korot)";
-        public string KorotCommand = "Korot Command";
-        public string ImBored = "I'm bored.";
-        public string DefaultBrowserSearch = "how to change default web browser";
-        public string KorotNotDefault = "Looks like Korot isn't your default browser." + Environment.NewLine + "Do you want to change it?";
+
         public string ReadTTS = "Read it";
         public string KorotUpdateError = "Unable to get updates.";
         public string addToDict = "Add to dictionary";
@@ -341,6 +314,8 @@ namespace Korot
         public string StatusType = "[PERC]% | [CURRENT] KiB downloaded out of [TOTAL] KiB.";
         public string enterAValidCode = "Please enter a Valid Base64 Code.";
         public string enterAValidUrl = "Enter a Valid URL";
+        public string goTotxt = "Go to \"[TEXT]\"";
+        public string SearchOnWeb = "Search \"[TEXT]\"";
         public string defaultproxytext = "Default Proxy";
         public string SearchOnPage = "Search on this page";
 
@@ -484,58 +459,12 @@ namespace Korot
 
         #endregion "Translate"
 
-        public void ShowSaveThame()
-        {
-            throw new NotImplementedException("TODO: Show Theme Save dialog.");
-        }
-
-        #region Updater
-        private void WebC_DownloadString(object sender, DownloadStringCompletedEventArgs e)
-        {
-            if (e.Cancelled)
-            {
-                isUpdateError = true;
-                Output.WriteLine(" [Updater] Update checking cancelled.");
-                return;
-            }
-            if (e.Error != null)
-            {
-                isUpdateError = true;
-                Output.WriteLine(" [Updater] Update checking error: " + e.Error.ToString());
-                return;
-            }
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(e.Result);
-            int latestVersion = 0;
-            XmlNode firstNode = doc.FirstChild.Name != "HaltroyUpdate" ? doc.FirstChild.NextSibling : doc.FirstChild;
-            foreach(XmlNode node in firstNode.ChildNodes)
-            {
-                if (node.Name == (VersionInfo.isPreOut ? "PreOutNo" : "AppVersionNo"))
-                {
-                    latestVersion = Convert.ToInt32(node.InnerXml);
-                }
-            }
-            isUpdateAvailable = (VersionInfo.VersionNumber < latestVersion);
-        }
-
-        public void CheckForUpdates()
-        {
-            if (WebC.IsBusy) { WebC.CancelAsync(); }
-            WebC.DownloadStringAsync(new Uri("https://raw.githubusercontent.com/Haltroy/Korot/master/Korot.htupdate"));
-        }
-        #endregion Updater
-
-        public frmMain() : this(new Settings(SafeFileSettingOrganizedClass.LastUser, false)) { }
-
         public frmMain(Settings settings)
         {
             Settings = settings;
             AeroPeekEnabled = true;
             TabRenderer = new KorotTabRenderer(this);
             Icon = Properties.Resources.KorotIcon;
-            WebC = new WebClient();
-            WebC.DownloadStringCompleted += WebC_DownloadString;
-            CheckForUpdates();
             InitializeComponent();
             foreach (Control x in Controls)
             {
@@ -564,22 +493,7 @@ namespace Korot
                 tmrNL.Start();
             }
             list = new MyJumplist(Handle, settings);
-            KorotNotDefault = Settings.LanguageSystem.GetItemText("NotDefault");
-            DefaultBrowserSearch = Settings.LanguageSystem.GetItemText("DefaultBrowserSearch");
-            if(settings.CheckIfDefault)
-            {
-                if (!KorotTools.isKorotDefaultBrowser())
-                {
-                    HTMsgBox mesaj = new HTMsgBox("Korot", KorotNotDefault, new HTDialogBoxContext(MessageBoxButtons.YesNo)) { Yes = Yes, No = No, AutoForeColor = false, Icon = Icon, BackColor = Settings.Theme.BackColor, ForeColor = Settings.Theme.ForeColor };
-                    DialogResult result = mesaj.ShowDialog();
-                    if (result == DialogResult.Yes)
-                    {
-                        CreateTab(Settings.SearchEngine + DefaultBrowserSearch);
-                    }
-                }
-            }
         }
-
         private void CloseTabs()
         {
             Tabs.Clear();
@@ -596,7 +510,6 @@ namespace Korot
                 }
             }
         }
-
         public void CleanNow(bool skipMessage)
         {
             if (skipMessage)
@@ -849,17 +762,6 @@ namespace Korot
                 }
                 CloseTabs();
                 Cef.Shutdown();
-                if (isUpdateAvailable)
-                {
-                    string installerPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\Haltroy\\KorotInstaller.exe";
-                    if (!File.Exists(installerPath))
-                    {
-                        WebC.DownloadFile("https://haltroy.com/KorotInstaller.html", installerPath);
-                    }else
-                    {
-                        Process.Start(installerPath);
-                    }
-                }
                 CleanNow(true);
 
                 Settings.Save();

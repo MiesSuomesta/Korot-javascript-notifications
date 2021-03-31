@@ -1,12 +1,13 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using CefSharp;
+using CefSharp.Enums;
+using CefSharp.Structs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -104,6 +105,11 @@ namespace Korot
         public void OnStatusMessage(IWebBrowser chromiumWebBrowser, StatusMessageEventArgs statusMessageArgs)
         {
             try { CEFform.Invoke(new Action(() => CEFform.ChangeStatus(statusMessageArgs.Value))); } catch { }
+        }
+
+        public bool OnCursorChange(IWebBrowser chromiumWebBrowser, IBrowser browser, IntPtr cursor, CursorType type, CursorInfo customCursorInfo)
+        {
+            return true;
         }
     }
 }

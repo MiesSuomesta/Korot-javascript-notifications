@@ -1,35 +1,30 @@
 <p align="center" style="text-align: center;">
-  <img width="128" height="128" src="https://haltroy.com/assets/images/korot-1000x1000.png" />
+  <img width="128" height="128" src="https://en.haltroy.com/assets/images/Korot-1.png" />
 </p>
 
 # [Korot](https://haltroy.com/Korot.html "Korot's Page")
-A Chromium web browser made by [Haltroy](https://haltroy.com "Haltroy's Website").
+A Chromium web browser made by [Haltroy](https://haltroy.com "Haltroy's Website") which is now deprecated, retired and no longer maintained. Please use [Yorot](https://github.com/haltroy/yorot) instead.
 
-Latest Available Version: [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0).
-
-Developing Version: `Project Reset`
+Latest Version: [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1).
 
 
-### Screenshot(s)
 <p align="center" style="text-align: center;">
-  <img width="641" height="523" src="https://haltroy.com/assets/images/korot0820-1076x685.png" />
+  <img width="641" height="523" src="http://en.haltroy.com/assets/images/korot0820.png" />
 </p>
 
 ## Features:
  - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, etc. supported. (Except `H.264` and many non-free codecs. See [#12](https://github.com/Haltroy/Korot/issues/12))
  - Tabbed, built-in search bar that auto-detects URLs.
  - Celebrates your birthday.
- - Developer tools, View Source, Page screnshot, Print, Keyboard Shortcuts, Save page & Zoom in page
- - UI language, theme and extension system (supports proxies).
+ - Developer tools ,View Source ,Page screnshot, Print, Keyboard Shortcuts, Save page & Zoom in page
+ - UI language system (Comes with [`English`](https://haltroy.com/store/item/Haltroy.KorotEnglish/) and [`Türkçe`](https://haltroy.com/store/item/Haltroy.KorotTürkçe/) languages)
+ - Themes
+ - ~Built-in Extension system (with support for proxies)~ 
  - Profiles
  - Notifications
  - Download manager
  - Custom pages (New Tab, Incognito, Error Page etc.)
  - View local & online webpages
-
-### EasyTabs Folder
-The `EasyTabs` folder in this repository contains the same source code in [`lstratman/EasyTabs`](https://github.com/lstratman/EasyTabs) but with minor changes including 
-[`Make WindowSizingBoxes Customizable`](https://github.com/lstratman/EasyTabs/pull/47) & [`TitleBarTab.cs - Make some properties public`](https://github.com/lstratman/EasyTabs/pull/44) pull requests.
  
  ## Releases & Branches
 
@@ -39,10 +34,9 @@ To see roadmap, refer to [ROADMAP](https://github.com/Haltroy/Korot/blob/master/
 
  | Branch                                                              | CEFSharp Version | VC++ Version | .Net | HTAlt  | Status | Release Time |
 |----------------------------------------------------------------------|------|------|-------|-----------------|-----|-------------------|
-| [`master`](https://github.com/haltroy/korot)                      | 85 | 2015 | Framework 4.8 | b1.6.3 | Master | 17 July 2017 |
-| [`1.0.0.0`](https://github.com/Haltroy/Korot/tree/1.0.0.0) | >=86 | 2015 | Framework 4.8 | >=b1.6.3 | `Planned` | ?? March 2021 |
-| `Reset1`                                                   | n/a| n/a  | Framework 4.6.1| b1.6.3 | Reset | 2021 Q2 |
-| [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0) | 85 | 2015 | Framework 4.8 | b1.6 | **Latest Release** | 29 October 2020 |
+| [`master`](https://github.com/haltroy/korot)                      | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 1 August 2021 |
+| [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1) | 88 | 2015 | Framework 4.8 | b1.6.4 | Unsupported | ?? June 2021 |
+| [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0) | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 29 October 2020 |
 | [`0.8.3.0`](https://github.com/Haltroy/Korot/tree/0.8.3.0) | 84 | 2015 | Framework 4.8 | b1.6 | Unsupported | 13 October 2020 |
 | [`0.8.2.0`](https://github.com/Haltroy/Korot/tree/0.8.2.0) | 84 | 2015 | Framework 4.8 | b1.5.1 | Unsupported | 18 September 2020 |
 | [`0.8.1.1`](https://github.com/Haltroy/Korot/tree/0.8.1.1) | 84 | 2015 | Framework 4.8 | b1.5.1 | Unsupported | 31 August 2020 |

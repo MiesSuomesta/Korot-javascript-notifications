@@ -1,11 +1,10 @@
-﻿/*
+﻿/* 
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by an MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
 
 */
-
 using CefSharp;
 using CefSharp.WinForms;
 using System;
@@ -31,9 +30,9 @@ namespace Korot
                 frmPopup popup = new frmPopup(tabform, tabform.userName, targetUrl)
                 {
                     StartPosition = FormStartPosition.Manual,
-                    Location = new System.Drawing.Point((popupFeatures.X == null ? 25 : (int)popupFeatures.X), (popupFeatures.Y == null ? 25 : (int)popupFeatures.Y)),
-                    Width = (popupFeatures.Width == null ? 500 : (int)popupFeatures.Width),
-                    Height = (popupFeatures.Height == null ? 500 : (int)popupFeatures.Height),
+                    Location = new System.Drawing.Point(popupFeatures.X.HasValue ? popupFeatures.X.Value : 0, popupFeatures.Y.HasValue ? popupFeatures.Y.Value : 0),
+                    Width = popupFeatures.Width.HasValue ? popupFeatures.Width.Value : 500,
+                    Height = popupFeatures.Width.HasValue ? popupFeatures.Height.Value : 500,
                 };
                 popup.Show();
             }
@@ -54,7 +53,7 @@ namespace Korot
             IntPtr windowHandle = browser.GetHost().GetWindowHandle();
             ChromiumWebBrowser webBrowser = (ChromiumWebBrowser)browserControl;
 
-            if (browser.MainFrame.Url.ToLowerInvariant().StartsWith("devtools://"))
+            if (browser.MainFrame.Url.ToLower().StartsWith("devtools://"))
             {
                 Control parentControl = Control.FromChildHandle(windowHandle);
 
