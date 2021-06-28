@@ -23,6 +23,11 @@ namespace Korot
     // Example: https://github.com/cefsharp/CefSharp/blob/master/CefSharp.Example/Handlers/AudioHandler.cs
     class AudioHandler : IAudioHandler
     {
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool GetAudioParameters(IWebBrowser chromiumWebBrowser, IBrowser browser, ref AudioParameters parameters)
         {
             throw new NotImplementedException("0.8.5.0 FEATURE");

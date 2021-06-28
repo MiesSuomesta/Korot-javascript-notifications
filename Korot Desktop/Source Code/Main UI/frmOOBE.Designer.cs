@@ -163,10 +163,10 @@ namespace Korot
             this.lbContinueBack.Font = new System.Drawing.Font("Tahoma", 11F);
             this.lbContinueBack.Location = new System.Drawing.Point(7, 214);
             this.lbContinueBack.Name = "lbContinueBack";
-            this.lbContinueBack.Size = new System.Drawing.Size(610, 51);
+            this.lbContinueBack.Size = new System.Drawing.Size(610, 106);
             this.lbContinueBack.TabIndex = 19;
-            this.lbContinueBack.Text = "This project is now retired. This means Korot will no longer supported in August " +
-    "2021.\r\nPlease switch to Yorot or any Yorot flavor instead.";
+            this.lbContinueBack.Text = "This project is now retired. This means Korot will no longer supported after 15 A" +
+    "ugust 2021.\r\nPlease switch to Yorot or any Yorot flavor instead.";
             this.lbContinueBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btContinue

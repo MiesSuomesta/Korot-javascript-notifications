@@ -191,6 +191,7 @@ namespace Korot
 
         #region "Translate"
 
+        public string SwitchToYorot = "Switch to Yorot.";
         public string ReadTTS = "Read it";
         public string KorotUpdateError = "Unable to get updates.";
         public string addToDict = "Add to dictionary";

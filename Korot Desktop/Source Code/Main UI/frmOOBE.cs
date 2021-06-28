@@ -30,7 +30,6 @@ namespace Korot
         }
 
         private bool allowSwitch = false;
-        private string profilePath;
         public string Yes = "Yes";
         public string No = "No";
         public string OK = "OK";

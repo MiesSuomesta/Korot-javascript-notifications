@@ -594,6 +594,7 @@ namespace Korot
             if (anaform.LoadedLang != fileLocation)
             {
                 anaform.LoadedLang = fileLocation;
+                anaform.SwitchToYorot = Settings.LanguageSystem.GetItemText("SwitchToYorot");
                 anaform.ReadTTS = Settings.LanguageSystem.GetItemText("ReadTTS");
                 anaform.addToDict = Settings.LanguageSystem.GetItemText("AddToDict");
                 anaform.openLinkInBack = Settings.LanguageSystem.GetItemText("OpenLinkInBack");

@@ -746,7 +746,7 @@ namespace Korot
 
         public void OnBeforeContextMenu(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model)
         {
-            if (!parameters.IsPepperMenu)
+            if (!parameters.IsCustomMenu)
             {
                 model.Clear();
                 showCMS(parameters, browserControl);

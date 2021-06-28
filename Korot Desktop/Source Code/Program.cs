@@ -34,7 +34,7 @@ namespace Korot
         [STAThread]
         private static void Main(string[] args)
         {
-            if (DateTime.Now.Month >= 8 && DateTime.Now.Year > 2021)
+            if (DateTime.Now.Month >= 8 && DateTime.Now.Day >= 15 && DateTime.Now.Year > 2021)
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

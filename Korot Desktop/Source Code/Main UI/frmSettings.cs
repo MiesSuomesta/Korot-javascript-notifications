@@ -2280,7 +2280,7 @@ namespace Korot
 
         private void ll32bit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            cefform.Invoke(new Action(() => cefform.NewTab("https://haltroy.com/korot2yorot.html")));
+            cefform.Invoke(new Action(() => cefform.NewTab("https://github.com/Haltroy/Korot/issues/178")));
         }
 
         #endregion About
