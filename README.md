@@ -36,7 +36,7 @@ To see roadmap, refer to [ROADMAP](https://github.com/Haltroy/Korot/blob/master/
  | Branch                                                              | CEFSharp Version | VC++ Version | .Net | HTAlt  | Status | Release Time |
 |----------------------------------------------------------------------|------|------|-------|-----------------|-----|-------------------|
 | [`master`](https://github.com/haltroy/korot)                      | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 1 August 2021 |
-| [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1) | 88 | 2015 | Framework 4.8 | b1.6.4 | Unsupported | ?? June 2021 |
+| [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1) | 88 | 2015 | Framework 4.8 | b1.6.4 | Unsupported | 28 June 2021 |
 | [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0) | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 29 October 2020 |
 | [`0.8.3.0`](https://github.com/Haltroy/Korot/tree/0.8.3.0) | 84 | 2015 | Framework 4.8 | b1.6 | Unsupported | 13 October 2020 |
 | [`0.8.2.0`](https://github.com/Haltroy/Korot/tree/0.8.2.0) | 84 | 2015 | Framework 4.8 | b1.5.1 | Unsupported | 18 September 2020 |
