@@ -1,17 +1,13 @@
 ## ⚠ In case of website beign down, please check my [Instagram](https://instagram.com/haltroy_) or [Discord Server](https://discord.gg/DjZQEvZ8n5). ⚠
+## ⚠ This project is retired. Please check out [Yorot](https://github.com/haltroy/yorot) instead. ⚠
 <p align="center" style="text-align: center;">
-  <img width="128" height="128" src="https://en.haltroy.com/assets/images/Korot-1.png" />
+  <img width="128" height="128" src="https://haltroy.com/assets/images/korot-1000x1000.png" />
 </p>
 
 # [Korot](https://haltroy.com/Korot.html "Korot's Page")
 A Chromium web browser made by [Haltroy](https://haltroy.com "Haltroy's Website") which is now deprecated, retired and no longer maintained. Please use [Yorot](https://github.com/haltroy/yorot) instead.
 
 Latest Version: [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1).
-
-
-<p align="center" style="text-align: center;">
-  <img width="641" height="523" src="http://en.haltroy.com/assets/images/korot0820.png" />
-</p>
 
 ## Features:
  - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, etc. supported. (Except `H.264` and many non-free codecs. See [#12](https://github.com/Haltroy/Korot/issues/12))
@@ -35,8 +31,8 @@ To see roadmap, refer to [ROADMAP](https://github.com/Haltroy/Korot/blob/master/
 
  | Branch                                                              | CEFSharp Version | VC++ Version | .Net | HTAlt  | Status | Release Time |
 |----------------------------------------------------------------------|------|------|-------|-----------------|-----|-------------------|
-| [`master`](https://github.com/haltroy/korot)                      | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 1 August 2021 |
-| [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1) | 88 | 2015 | Framework 4.8 | b1.6.4 | Unsupported | 28 June 2021 |
+| [`master`](https://github.com/haltroy/korot)                      | 91 | 2015 | Framework 4.8 | b1.7 | Unsupported | 15 August 2021 |
+| [`0.8.4.1`](https://github.com/Haltroy/Korot/tree/0.8.4.1) | 91 | 2015 | Framework 4.8 | b1.7 | Unsupported | 28 June 2021 |
 | [`0.8.4.0`](https://github.com/Haltroy/Korot/tree/0.8.4.0) | 85 | 2015 | Framework 4.8 | b1.6 | Unsupported | 29 October 2020 |
 | [`0.8.3.0`](https://github.com/Haltroy/Korot/tree/0.8.3.0) | 84 | 2015 | Framework 4.8 | b1.6 | Unsupported | 13 October 2020 |
 | [`0.8.2.0`](https://github.com/Haltroy/Korot/tree/0.8.2.0) | 84 | 2015 | Framework 4.8 | b1.5.1 | Unsupported | 18 September 2020 |
