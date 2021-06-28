@@ -1,16 +1,13 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
+
 using System;
 using System.Drawing;
-using System.IO;
-using System.IO.Compression;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Korot
@@ -31,7 +28,6 @@ namespace Korot
 
         private void frmInstallExt_Load(object sender, EventArgs e)
         {
-           
         }
 
         private void timer2_Tick(object sender, EventArgs e)

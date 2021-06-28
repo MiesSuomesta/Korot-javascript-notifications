@@ -1,10 +1,11 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
+
 using CefSharp;
 using CefSharp.WinForms;
 using EasyTabs;
@@ -73,7 +74,7 @@ namespace Korot
                     }
                     else if (args.Contains("-oobe") || settings.LoadedDefaults || !Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\"))
                     {
-                        Application.Run(new frmOOBE(settings,false));
+                        Application.Run(new frmOOBE(settings, false));
                         appStarted = true;
                         return;
                     }
@@ -133,13 +134,13 @@ namespace Korot
             }
         }
 
-            public static void RemoveDirectory(string directory, bool displayresult = true)
-            {
-                List<FileFolderError> errors = new List<FileFolderError>();
-                foreach (string x in Directory.GetFiles(directory)) { try { File.Delete(x); } catch (Exception ex) { errors.Add(new FileFolderError(x, ex, false)); } }
-                foreach (string x in Directory.GetDirectories(directory)) { try { Directory.Delete(x, true); } catch (Exception ex) { errors.Add(new FileFolderError(x, ex, true)); } }
-                if (displayresult) { if (errors.Count == 0) { Output.WriteLine(" [RemoveDirectory] Removed \"" + directory + "\" with no errors."); } else { Output.WriteLine(" [RemoveDirectory] Removed \"" + directory + "\" with " + errors.Count + " error(s)."); foreach (FileFolderError x in errors) { Output.WriteLine(" [RemoveDirectory] " + (x.isDirectory ? "Directory" : "File") + " Error: " + x.Location + " [" + x.Error.ToString() + "]"); } } }
-            }
+        public static void RemoveDirectory(string directory, bool displayresult = true)
+        {
+            List<FileFolderError> errors = new List<FileFolderError>();
+            foreach (string x in Directory.GetFiles(directory)) { try { File.Delete(x); } catch (Exception ex) { errors.Add(new FileFolderError(x, ex, false)); } }
+            foreach (string x in Directory.GetDirectories(directory)) { try { Directory.Delete(x, true); } catch (Exception ex) { errors.Add(new FileFolderError(x, ex, true)); } }
+            if (displayresult) { if (errors.Count == 0) { Output.WriteLine(" [RemoveDirectory] Removed \"" + directory + "\" with no errors."); } else { Output.WriteLine(" [RemoveDirectory] Removed \"" + directory + "\" with " + errors.Count + " error(s)."); foreach (FileFolderError x in errors) { Output.WriteLine(" [RemoveDirectory] " + (x.isDirectory ? "Directory" : "File") + " Error: " + x.Location + " [" + x.Error.ToString() + "]"); } } }
+        }
     }
 
     public class Settings
@@ -278,7 +279,7 @@ namespace Korot
                 {
                     string themeFile = node.Attributes["File"] != null ? node.Attributes["File"].Value.Replace("&amp;", "&").Replace("&gt;", ">").Replace("&lt;", "<").Replace("&apos;", "'") : "";
                     if (!File.Exists(themeFile)) { themeFile = ""; }
-                    Theme = new Theme(themeFile,this);
+                    Theme = new Theme(themeFile, this);
                     foreach (XmlNode subnode in node.ChildNodes)
                     {
                         if (subnode.Name.ToLower() == "name")
@@ -477,6 +478,7 @@ namespace Korot
         }
 
         #region Properties
+
         public bool LoadedDefaults = false;
         public string Birthday { get; set; } = "";
         public bool CelebrateBirthday { get; set; } = true;
@@ -581,7 +583,7 @@ namespace Korot
 
         public DownloadSettings Downloads { get; set; } = new DownloadSettings() { DownloadDirectory = "", Downloads = new List<Site>(), OpenDownload = false, UseDownloadFolder = false };
 
-        public LanguageSystem LanguageSystem { get; set; } = new LanguageSystem("",null);
+        public LanguageSystem LanguageSystem { get; set; } = new LanguageSystem("", null);
 
         public CollectionManager CollectionManager { get; set; } = new CollectionManager("") { Collections = new List<Collection>() };
 
@@ -706,7 +708,6 @@ namespace Korot
             return allowed;
         }
 
-
         public void Save()
         {
             string x =
@@ -827,7 +828,8 @@ namespace Korot
             if (!string.IsNullOrWhiteSpace(themeFile) && File.Exists(themeFile))
             {
                 LoadedDefaults = false;
-            }else
+            }
+            else
             {
                 LoadedDefaults = true;
                 return;
@@ -866,7 +868,7 @@ namespace Korot
                 }
                 else if (node.Name.ToLower() == "forecolor")
                 {
-                    if (node.InnerText.ToLower() == "auto") 
+                    if (node.InnerText.ToLower() == "auto")
                     {
                         AutoForeColor = true;
                         ForeColor = HTAlt.Tools.AutoWhiteBlack(BackColor);
@@ -961,7 +963,7 @@ namespace Korot
 
         public bool AutoForeColor { get; set; }
 
-        public Theme(string themeFile,Settings settings)
+        public Theme(string themeFile, Settings settings)
         {
             Settings = settings;
             Name = "Korot Light";
@@ -998,6 +1000,7 @@ namespace Korot
         public int BackgroundStyleLayout { get; set; }
         public TabColors NewTabColor { get; set; }
         public TabColors CloseButtonColor { get; set; }
+
         public void Update()
         {
             if (UseHaltroyUpdate)
@@ -1258,7 +1261,8 @@ namespace Korot
         public int ItemCount => LanguageItems.Count;
         public string LangFile { get; private set; } = Application.StartupPath + "\\Lang\\English.klf";
         public Settings Settings { get; set; } = null;
-        public LanguageSystem(string fileLoc,Settings settings)
+
+        public LanguageSystem(string fileLoc, Settings settings)
         {
             Settings = settings;
             ReadFromFile(!string.IsNullOrWhiteSpace(fileLoc) ? fileLoc : LangFile, true);
@@ -1278,6 +1282,7 @@ namespace Korot
                 ForceReadFromFile(fileLoc, clear);
             }
         }
+
         public void ReadCode(string xmlCode, bool clear = true)
         {
             if (clear) { LanguageItems.Clear(); }
@@ -1290,7 +1295,7 @@ namespace Korot
                 {
                     Version compVersion = new Version(rootNode.Attributes["CompatibleVersion"].Value);
                     Version current = new Version(Application.ProductVersion);
-                    if (compVersion.CompareTo(current) != 0  && LangFile != Application.StartupPath + "\\Lang\\English.klf")
+                    if (compVersion.CompareTo(current) != 0 && LangFile != Application.StartupPath + "\\Lang\\English.klf")
                     {
                         HTMsgBox msgbox = new HTMsgBox("Korot", "This language file is not compatible with your Korot version."
                             + Environment.NewLine
@@ -1304,7 +1309,13 @@ namespace Korot
                             + Environment.NewLine
                             + "Would you still want to continue?", new HTDialogBoxContext(MessageBoxButtons.YesNoCancel))
                         {
-                            BackColor = (Settings != null ? Settings.Theme.BackColor : Color.White), ForeColor = (Settings != null ? Settings.Theme.ForeColor : Color.Black), Yes = "Yes", No = "No" , Cancel = "Cancel", AutoForeColor = false, Icon = Properties.Resources.KorotIcon
+                            BackColor = (Settings != null ? Settings.Theme.BackColor : Color.White),
+                            ForeColor = (Settings != null ? Settings.Theme.ForeColor : Color.Black),
+                            Yes = "Yes",
+                            No = "No",
+                            Cancel = "Cancel",
+                            AutoForeColor = false,
+                            Icon = Properties.Resources.KorotIcon
                         };
                         DialogResult result = msgbox.ShowDialog();
                         if (result != DialogResult.Yes)
@@ -1501,7 +1512,9 @@ namespace Korot
             {
                 // Add trailing period if doesn't exist
                 if (FileExtension.Substring(0, 1) != ".")
+                {
                     FileExtension = "." + FileExtension;
+                }
                 // Open registry areas containing launching app details
                 objExtReg = objExtReg.OpenSubKey(FileExtension.Trim());
                 strExtValue = System.Convert.ToString(objExtReg.GetValue(""));
@@ -1510,9 +1523,13 @@ namespace Korot
                 string[] SplitArray;
                 SplitArray = Convert.ToString(objAppReg.GetValue(null)).Split('"');
                 if (SplitArray[0].Trim().Length > 0)
+                {
                     return SplitArray[0].Replace("%1", "");
+                }
                 else
+                {
                     return SplitArray[1].Replace("%1", "");
+                }
             }
             catch
             {
@@ -1919,8 +1936,6 @@ namespace Korot
             Tools.WriteFile(Application.StartupPath + "\\Lang\\Türkçe.klf", Properties.Resources.Türkçe);
             return true;
         }
-
-       
     }
 
     public class KorotVersion

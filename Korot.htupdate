@@ -5,7 +5,7 @@
   <AppVersionNo>53</AppVersionNo>
   <MinimumNo>53</MinimumNo>
   <InstallNo>53</InstallNo>
-  <AppInstallerUrl>http://bit.ly/KorotSetup</AppInstallerUrl>
+  <AppInstallerUrl>https://haltroy.com/404.html</AppInstallerUrl>
   <Architectures>
     <Architecture Type="amd64" VersionNo="53" Upgrade="https://github.com/Haltroy/Korot/releases/download/[VERSION]/x64-U.zip" FullUpgrade="https://github.com/Haltroy/Korot/releases/download/[VERSION]/x64-F.zip" />
     <Architecture Type="i86" VersionNo="53" Upgrade="https://github.com/Haltroy/Korot/releases/download/[VERSION]/x86-U.zip" FullUpgrade="https://github.com/Haltroy/Korot/releases/download/[VERSION]/x86-F.zip" />

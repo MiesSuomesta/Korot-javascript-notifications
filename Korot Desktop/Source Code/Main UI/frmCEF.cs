@@ -1,10 +1,11 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
+
 using CefSharp;
 using CefSharp.WinForms;
 using EasyTabs;
@@ -90,7 +91,8 @@ namespace Korot
             if (!notifListenMode)
             {
                 InitializeComponent();
-            }else
+            }
+            else
             {
                 InitNLTimer();
             }
@@ -101,14 +103,17 @@ namespace Korot
                 try { x.KeyDown += tabform_KeyDown; x.MouseWheel += MouseScroll; x.Font = new Font("Ubuntu", x.Font.Size, x.Font.Style); } catch { continue; }
             }
         }
+
         private void InitNLTimer()
         {
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 300000;
-            this.timer1.Tick += new System.EventHandler(this.tmrNotifListener_Tick);
+            timer1 = new System.Windows.Forms.Timer(components)
+            {
+                //
+                // timer1
+                //
+                Interval = 300000
+            };
+            timer1.Tick += new System.EventHandler(tmrNotifListener_Tick);
         }
 
         public void LoadDynamicMenu()
@@ -396,34 +401,37 @@ namespace Korot
         {
             if (anaform.settingTab != null)
             {
-                anaform.Invoke(new Action(() => { 
-                anaform.SelectedTab = anaform.settingTab;
-                var frm = anaform.settingTab.Content as frmCEF;
-                frm.EditNewTabItem();
+                anaform.Invoke(new Action(() =>
+                {
+                    anaform.SelectedTab = anaform.settingTab;
+                    frmCEF frm = anaform.settingTab.Content as frmCEF;
+                    frm.EditNewTabItem();
                 }));
             }
             else
             {
-                anaform.Invoke(new Action(() => { 
-                anaform.settingTab = ParentTab;
-                if (setmenu is null)
+                anaform.Invoke(new Action(() =>
                 {
-                    setmenu = new frmSettings(Settings, this)
+                    anaform.settingTab = ParentTab;
+                    if (setmenu is null)
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        Visible = true,
-                        ShowInTaskbar = false,
-                    };
-                    tpSettings.Controls.Add(setmenu);
-                    setmenu.Show(); Settings.AllForms.Add(setmenu);
-                }
-                setmenu.SwitchNewTab();
-                allowSwitching = true;
-                tabControl1.SelectedTab = tpSettings;
+                        setmenu = new frmSettings(Settings, this)
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            Visible = true,
+                            ShowInTaskbar = false,
+                        };
+                        tpSettings.Controls.Add(setmenu);
+                        setmenu.Show(); Settings.AllForms.Add(setmenu);
+                    }
+                    setmenu.SwitchNewTab();
+                    allowSwitching = true;
+                    tabControl1.SelectedTab = tpSettings;
                 }));
             }
         }
+
         private string searchText;
 
         public void refreshPage()
@@ -523,7 +531,7 @@ namespace Korot
             tbAddress.Width = pNavigate.Width - (btBack.Width + btNext.Width + btHome.Width + btRefresh.Width + btFav.Width + 5 + btProfile.Width + btHamburger.Width + pbSolKenar.Width + pbSağKenar.Width + pbPrivacy.Width + (_Incognito ? pbIncognito.Width : 0));
             pbAddress.Width = pNavigate.Width - (btBack.Width + btNext.Width + btHome.Width + btRefresh.Width + btFav.Width + 5 + btProfile.Width + btHamburger.Width + pbSolKenar.Width + pbSağKenar.Width);
             pbIncognito.Location = new Point(tbAddress.Location.X + tbAddress.Width, pbIncognito.Location.Y);
-            pbSağKenar.Location = new Point(_Incognito ? (pbIncognito.Location.X + pbIncognito.Width) :(tbAddress.Location.X + tbAddress.Width), pbSağKenar.Location.Y);
+            pbSağKenar.Location = new Point(_Incognito ? (pbIncognito.Location.X + pbIncognito.Width) : (tbAddress.Location.X + tbAddress.Width), pbSağKenar.Location.Y);
             updateAddons();
         }
 
@@ -1019,7 +1027,7 @@ namespace Korot
 
         public void updateAddons()
         {
-            if(anaform.addonsUpdated) { return; }
+            if (anaform.addonsUpdated) { return; }
             Settings.Extensions.UpdateExtensions();
             foreach (string x in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Korot\\" + SafeFileSettingOrganizedClass.LastUser + "\\Themes\\", "*.*", SearchOption.AllDirectories))
             {
@@ -1074,9 +1082,10 @@ namespace Korot
                     if (HTAlt.Tools.Brightness(Settings.Theme.BackColor) > 130)
                     {
                         if (btRefresh.InvokeRequired) { btRefresh.Invoke(new Action(() => btRefresh.ButtonImage = Korot.Properties.Resources.cancel)); }
-                        else{ btRefresh.ButtonImage = Korot.Properties.Resources.cancel;}
+                        else { btRefresh.ButtonImage = Korot.Properties.Resources.cancel; }
                     }
-                    else {
+                    else
+                    {
                         if (btRefresh.InvokeRequired) { btRefresh.Invoke(new Action(() => btRefresh.ButtonImage = Korot.Properties.Resources.cancel_w)); }
                         else { btRefresh.ButtonImage = Korot.Properties.Resources.cancel_w; }
                     }

@@ -1,20 +1,13 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
 
-using HTAlt.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.IO.Compression;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace Korot
 {

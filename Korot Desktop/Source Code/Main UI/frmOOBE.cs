@@ -1,12 +1,12 @@
-﻿/* 
+﻿/*
 
 Copyright © 2020 Eren "Haltroy" Kanat
 
-Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE 
+Use of this source code is governed by MIT License that can be found in github.com/Haltroy/Korot/blob/master/LICENSE
 
 */
+
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -16,9 +16,9 @@ namespace Korot
     public partial class frmOOBE : Form
     {
         private readonly Settings Settings;
-        private bool isKorotDead = false;
+        private readonly bool isKorotDead = false;
 
-        public frmOOBE(Settings settings,bool isDead)
+        public frmOOBE(Settings settings, bool isDead)
         {
             Settings = settings;
             InitializeComponent();
@@ -72,7 +72,8 @@ namespace Korot
                     if (isKorotDead)
                     {
                         lbContinueBack.Text = Settings.LanguageSystem.GetItemText("OOBEKorotDeath").Replace("[NEWLINE]", Environment.NewLine);
-                    }else
+                    }
+                    else
                     {
                         lbContinueBack.Text = Settings.LanguageSystem.GetItemText("OOBEKorotIsDying").Replace("[NEWLINE]", Environment.NewLine);
                     }
@@ -88,8 +89,6 @@ namespace Korot
                 btContinue2.Visible = false;
             }
         }
-
-        
 
         private void frmOOBE_Load(object sender, EventArgs e)
         {
